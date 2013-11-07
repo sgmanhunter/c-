@@ -1,0 +1,12 @@
+C:\Users\Administrator\Desktop\SCHOOL\ccpSEM3\C#projectgroep1\ProjectGroep01\ProjectGroep01\bin\Debug\ProjectGroep01.exe.config
+C:\Users\Kenny Deblaere\Downloads\ProjectGroep01\ProjectGroep01\ProjectGroep01\bin\Debug\ProjectGroep01.exe.config
+C:\Users\Kenny Deblaere\Downloads\ProjectGroep01\ProjectGroep01\ProjectGroep01\bin\Debug\ProjectGroep01.exe
+C:\Users\Kenny Deblaere\Downloads\ProjectGroep01\ProjectGroep01\ProjectGroep01\bin\Debug\ProjectGroep01.pdb
+C:\Users\Kenny Deblaere\Downloads\ProjectGroep01\ProjectGroep01\ProjectGroep01\obj\Debug\ProjectGroep01.csprojResolveAssemblyReference.cache
+C:\Users\Kenny Deblaere\Downloads\ProjectGroep01\ProjectGroep01\ProjectGroep01\obj\Debug\ProjectGroep01.Properties.Resources.resources
+C:\Users\Kenny Deblaere\Downloads\ProjectGroep01\ProjectGroep01\ProjectGroep01\obj\Debug\ProjectGroep01.csproj.GenerateResource.Cache
+C:\Users\Kenny Deblaere\Downloads\ProjectGroep01\ProjectGroep01\ProjectGroep01\obj\Debug\ProjectGroep01.exe
+C:\Users\Kenny Deblaere\Downloads\ProjectGroep01\ProjectGroep01\ProjectGroep01\obj\Debug\ProjectGroep01.pdb
+C:\Users\Administrator\Desktop\SCHOOL\ccpSEM3\C#projectgroep1\ProjectGroep01\ProjectGroep01\ProjectGroep01\bin\Debug\ProjectGroep01.exe.config
+C:\Users\Administrator\Desktop\SCHOOL\ccpSEM3\C#projectgroep1\ProjectGroep01\ProjectGroep01\ProjectGroep01\obj\Debug\ProjectGroep01.exe
+C:\Users\Administrator\Desktop\SCHOOL\ccpSEM3\C#projectgroep1\ProjectGroep01\ProjectGroep01\ProjectGroep01\obj\Debug\ProjectGroep01.pdb
