@@ -42,8 +42,8 @@
     <Compile Include="Databank\Databank.cs" />
     <Compile Include="Evenementen\IEvenement.cs" />
     <Compile Include="Evenementen\ITEvenement.cs" />
-    <Compile Include="Evenementen\ITEvenementen.cs" />
     <Compile Include="Evenementen\EvenementFactory.cs" />
+    <Compile Include="Evenementen\ITEvenementFactory.cs" />
     <Compile Include="People\Leden.cs" />
     <Compile Include="People\Lid.cs" />
     <Compile Include="People\Plaats.cs" />

@@ -23,10 +23,15 @@ namespace ProjectGroep01
             grpBoxLogin.Visible = false;
 
 
-            EvenementFactory.MakeEventArgs args = new EvenementFactory.MakeEventArgs();
+            EvenementFactory.MakeEventArgs args = new MakeITEvenementArgs();
+            EvenementFactory itfac = new ITEvenementFactory();
+
             args.Naam = "test";
             args.Plaats = new ITEvents.data.People.Plaats() { HuisNummer = "1", Stad = "Sats", Straatnaam = "diksmuide" };
-            IEvenement it = EvenementFactory.Singleton.MakeEvent(EVENT_TYPE.IT_EVENT, args);
+
+            IEvenement ev = itfac.MakeEvent(args);
+            
+            
 
         }
     }
