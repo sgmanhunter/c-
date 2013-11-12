@@ -13,3 +13,9 @@ C:\Users\Administrator\Desktop\SCHOOL\ccpSEM3\C#projectgroep1\ProjectGroep01\Pro
 C:\Users\Kenny Deblaere\Documents\GitHub\c-\ProjectGroep01\ProjectGroep01\bin\Debug\ProjectGroep01.exe.config
 C:\Users\Kenny Deblaere\Documents\GitHub\c-\ProjectGroep01\ProjectGroep01\obj\Debug\ProjectGroep01.exe
 C:\Users\Kenny Deblaere\Documents\GitHub\c-\ProjectGroep01\ProjectGroep01\obj\Debug\ProjectGroep01.pdb
+C:\Users\Kenny Deblaere\Documents\GitHub\c-\ProjectGroep01\ProjectGroep01\bin\Debug\ProjectGroep01.exe
+C:\Users\Kenny Deblaere\Documents\GitHub\c-\ProjectGroep01\ProjectGroep01\bin\Debug\ProjectGroep01.pdb
+C:\Users\Kenny Deblaere\Documents\GitHub\c-\ProjectGroep01\ProjectGroep01\obj\Debug\ProjectGroep01.csprojResolveAssemblyReference.cache
+C:\Users\Kenny Deblaere\Documents\GitHub\c-\ProjectGroep01\ProjectGroep01\obj\Debug\ProjectGroep01.Properties.Resources.resources
+C:\Users\Kenny Deblaere\Documents\GitHub\c-\ProjectGroep01\ProjectGroep01\obj\Debug\ProjectGroep01.Main.resources
+C:\Users\Kenny Deblaere\Documents\GitHub\c-\ProjectGroep01\ProjectGroep01\obj\Debug\ProjectGroep01.csproj.GenerateResource.Cache

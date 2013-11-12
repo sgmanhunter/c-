@@ -15,6 +15,8 @@ namespace ProjectGroep01
         public Main()
         {
             InitializeComponent();
+            grpBoxLoggedIn.Visible = true;
+            grpBoxLogin.Visible = false;
         }
     }
 }
