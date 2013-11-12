@@ -4,17 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProjectGroep01.Model
+namespace ITEvents.data.Evenementen
 {
-    class ITEvents:List<ITEvent>
+    class ITEvenementen:List<ITEvenement>
     {
         #region datamembers
-        private static ITEvents eventsInstantie = new ITEvents();
+        private static ITEvenementen eventsInstantie = new ITEvenementen();
         private int huidigEventNummer;
         #endregion 
 
         #region properties
-        public static ITEvents EventsInstantie
+        public static ITEvenementen EventsInstantie
         {
             get { return eventsInstantie; }
             private set { eventsInstantie = value; }
@@ -22,7 +22,7 @@ namespace ProjectGroep01.Model
         #endregion 
 
         #region constructor
-        private ITEvents()
+        private ITEvenementen()
         {
             huidigEventNummer = 0;
         }
