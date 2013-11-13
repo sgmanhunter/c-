@@ -10,7 +10,8 @@ namespace ProjectGroep01.Data.Evenementen
     {
         #region datamembers
         private int eventNummer;
-        private string eventNaam;        
+        private string eventNaam;
+        private DateTime datum;
         private int aantalInschrijvingen, aantalPlaatsen;
 
         private Plaats plaats;
@@ -27,7 +28,11 @@ namespace ProjectGroep01.Data.Evenementen
             get { return eventNaam; }
             private set { eventNaam = value; }
         }
-       
+        public DateTime Datum
+        {
+            get { return datum; }
+            set { datum = value; }
+        }
         public Plaats Plaats
         {
             get { return plaats; }
@@ -51,19 +56,20 @@ namespace ProjectGroep01.Data.Evenementen
         #endregion 
 
         #region constructors
-        public ITEvenement(string eventNaam, Plaats plaats, int aantalInschrijvingen, int aantalPlaatsen)
+        public ITEvenement(string eventNaam, DateTime datum, Plaats plaats, int aantalInschrijvingen, int aantalPlaatsen)
         {
-            EventNummer = ITEvenementen.EvenementenInstantie.BerekenNieuwEventNummer();
+            EventNummer = ITEvenementen.EvenementInstantie.BerekenNieuwEventNummer();
+            Datum = datum;
             Plaats = plaats;
             AantalInschrijvingen = aantalInschrijvingen;
             AantalPlaatsen = aantalPlaatsen;
         }
-        public ITEvenement(string eventNaam, Plaats plaats)
-            : this(eventNaam, plaats, 0, 30)
+        public ITEvenement(string eventNaam, DateTime datum, Plaats plaats)
+            : this(eventNaam, datum, plaats, 0, 30)
         {
         }
-        public ITEvenement(string eventNaam, Plaats plaats, int aantalPlaatsen)
-            : this(eventNaam, plaats, 0, aantalPlaatsen)
+        public ITEvenement(string eventNaam, DateTime datum, Plaats plaats, int aantalPlaatsen)
+            : this(eventNaam, datum, plaats, 0, aantalPlaatsen)
         {
         }
         #endregion 

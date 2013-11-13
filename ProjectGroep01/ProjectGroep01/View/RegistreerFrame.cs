@@ -32,11 +32,14 @@ namespace ProjectGroep01.View
                 bool geslacht = rdbtnMan.Checked;
                 Lid lid = new Lid(voornaam, familienaam, gebruikersnaam, wachtwoord, geboortedatum, geslacht, email);
                 Leden.LedenInstantie.Add(lid);
-                MessageBox.Show("Uw registratie is gelukt!");
+                MessageBox.Show("Uw registratie is gelukt!","Registreren");
                 Close();
-
             }
 
+        }
+        private void btnAnnuleren_Click(object sender, EventArgs e)
+        {
+            Close();
         }
 
         private bool Controle()

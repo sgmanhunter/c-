@@ -23,3 +23,4 @@ C:\Users\Administrator\Documents\GitHub\c-\ProjectGroep01\ProjectGroep01\obj\Deb
 C:\Users\Administrator\Documents\GitHub\c-\ProjectGroep01\ProjectGroep01\obj\Debug\ProjectGroep01.pdb
 C:\Users\Kenny Deblaere\Documents\GitHub\c-\ProjectGroep01\ProjectGroep01\obj\Debug\ProjectGroep01.View.Main.resources
 C:\Users\Kenny Deblaere\Documents\GitHub\c-\ProjectGroep01\ProjectGroep01\obj\Debug\ProjectGroep01.View.RegistreerFrame.resources
+C:\Users\Kenny Deblaere\Documents\GitHub\c-\ProjectGroep01\ProjectGroep01\obj\Debug\ProjectGroep01.View.AanmaakEventForm.resources

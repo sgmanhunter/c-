@@ -88,5 +88,14 @@ namespace ProjectGroep01.View
             IsLoggedIn = false;
             GrpBoxPicker();
         }
+
+        private void btnGo_Click(object sender, EventArgs e)
+        {
+            if (rdbtnAanmakenEvent.Checked)
+            {
+                AanmaakEventForm avf = new AanmaakEventForm();
+                avf.ShowDialog();
+            }
+        }
     }
 }

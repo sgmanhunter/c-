@@ -14,7 +14,7 @@ namespace ProjectGroep01.Data.Evenementen
         #endregion
 
         #region properties
-        public static ITEvenementen EvenementenInstantie
+        public static ITEvenementen EvenementInstantie
         {
             get { return evenementInstantie; }
             private set { evenementInstantie = value; }

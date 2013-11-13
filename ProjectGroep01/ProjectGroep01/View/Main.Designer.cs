@@ -257,6 +257,7 @@
             this.btnGo.TabIndex = 3;
             this.btnGo.Text = "Go!";
             this.btnGo.UseVisualStyleBackColor = true;
+            this.btnGo.Click += new System.EventHandler(this.btnGo_Click);
             // 
             // rdbInschrijvenEvent
             // 
@@ -293,6 +294,7 @@
             // 
             // errorProvider
             // 
+            this.errorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.errorProvider.ContainerControl = this;
             // 
             // Main
@@ -305,6 +307,7 @@
             this.Controls.Add(this.grpBoxRapport);
             this.Controls.Add(this.grpBoxOverzicht);
             this.Name = "Main";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ITEvents";
             this.grpBoxOverzicht.ResumeLayout(false);
             this.grpBoxOverzicht.PerformLayout();

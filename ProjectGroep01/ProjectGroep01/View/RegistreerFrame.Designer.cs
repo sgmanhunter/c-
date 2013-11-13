@@ -49,6 +49,7 @@
             this.dTPgeboortedatum = new System.Windows.Forms.DateTimePicker();
             this.lblGeboortedatum = new System.Windows.Forms.Label();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.btnAnnuleren = new System.Windows.Forms.Button();
             this.pnlGeslacht.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
@@ -153,7 +154,7 @@
             // 
             // btnRegistreren
             // 
-            this.btnRegistreren.Location = new System.Drawing.Point(163, 238);
+            this.btnRegistreren.Location = new System.Drawing.Point(15, 246);
             this.btnRegistreren.Name = "btnRegistreren";
             this.btnRegistreren.Size = new System.Drawing.Size(139, 26);
             this.btnRegistreren.TabIndex = 12;
@@ -205,7 +206,7 @@
             // 
             this.dTPgeboortedatum.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dTPgeboortedatum.Location = new System.Drawing.Point(162, 75);
-            this.dTPgeboortedatum.MaxDate = System.DateTime.Now;
+            this.dTPgeboortedatum.MaxDate = new System.DateTime(2013, 11, 13, 21, 29, 21, 831);
             this.dTPgeboortedatum.Name = "dTPgeboortedatum";
             this.dTPgeboortedatum.Size = new System.Drawing.Size(138, 20);
             this.dTPgeboortedatum.TabIndex = 18;
@@ -222,13 +223,25 @@
             // 
             // errorProvider
             // 
+            this.errorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.errorProvider.ContainerControl = this;
+            // 
+            // btnAnnuleren
+            // 
+            this.btnAnnuleren.Location = new System.Drawing.Point(163, 246);
+            this.btnAnnuleren.Name = "btnAnnuleren";
+            this.btnAnnuleren.Size = new System.Drawing.Size(139, 26);
+            this.btnAnnuleren.TabIndex = 20;
+            this.btnAnnuleren.Text = "Annuleren";
+            this.btnAnnuleren.UseVisualStyleBackColor = true;
+            this.btnAnnuleren.Click += new System.EventHandler(this.btnAnnuleren_Click);
             // 
             // RegistreerFrame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(510, 344);
+            this.Controls.Add(this.btnAnnuleren);
             this.Controls.Add(this.lblGeboortedatum);
             this.Controls.Add(this.dTPgeboortedatum);
             this.Controls.Add(this.lblGeslacht);
@@ -247,6 +260,7 @@
             this.Controls.Add(this.lblFamilienaam);
             this.Controls.Add(this.lblVoornaam);
             this.Name = "RegistreerFrame";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Registreren";
             this.pnlGeslacht.ResumeLayout(false);
             this.pnlGeslacht.PerformLayout();
@@ -278,5 +292,6 @@
         private System.Windows.Forms.DateTimePicker dTPgeboortedatum;
         private System.Windows.Forms.Label lblGeboortedatum;
         private System.Windows.Forms.ErrorProvider errorProvider;
+        private System.Windows.Forms.Button btnAnnuleren;
     }
 }

@@ -50,6 +50,12 @@
     <Compile Include="Data\People\Leden.cs" />
     <Compile Include="Data\People\Lid.cs" />
     <Compile Include="Data\People\Plaats.cs" />
+    <Compile Include="View\AanmaakEventForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\AanmaakEventForm.Designer.cs">
+      <DependentUpon>AanmaakEventForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Main.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -73,6 +79,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="View\AanmaakEventForm.resx">
+      <DependentUpon>AanmaakEventForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>

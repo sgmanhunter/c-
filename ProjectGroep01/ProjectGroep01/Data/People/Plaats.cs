@@ -9,7 +9,7 @@ namespace ProjectGroep01.Data.People
     public class Plaats
     {
         private string straatnaam;
-        private string huisNummer;
+        private int huisNummer;
         private string stad;
 
         public string Straatnaam
@@ -18,7 +18,7 @@ namespace ProjectGroep01.Data.People
             set { straatnaam = value; }
         }
 
-        public string HuisNummer
+        public int HuisNummer
         {
             get { return huisNummer; }
             set { huisNummer = value; }
@@ -28,6 +28,13 @@ namespace ProjectGroep01.Data.People
         {
             get { return stad; }
             set { stad = value; } 
+        }
+
+        public Plaats(string straatnaam, int huisnummer, string stad)
+        {
+            Straatnaam = straatnaam;
+            HuisNummer = huisnummer;
+            Stad = stad;
         }
     }
 }
