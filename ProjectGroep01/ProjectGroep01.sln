@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectGroep01", "ProjectGroep01\ProjectGroep01.csproj", "{B54106A8-C830-44CF-A7C2-E74A7704BB2D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITEvents.data", "ITEvents.data\ITEvents.data.csproj", "{1EEBF7C3-089B-4135-A996-19DF6651CBAF}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,10 +13,6 @@ Global
 		{B54106A8-C830-44CF-A7C2-E74A7704BB2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B54106A8-C830-44CF-A7C2-E74A7704BB2D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B54106A8-C830-44CF-A7C2-E74A7704BB2D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1EEBF7C3-089B-4135-A996-19DF6651CBAF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1EEBF7C3-089B-4135-A996-19DF6651CBAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1EEBF7C3-089B-4135-A996-19DF6651CBAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1EEBF7C3-089B-4135-A996-19DF6651CBAF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,4 +1,4 @@
-﻿namespace ProjectGroep01
+﻿namespace ProjectGroep01.View
 {
     partial class Main
     {
@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.grpBoxOverzicht = new System.Windows.Forms.GroupBox();
             this.btnOverzicht = new System.Windows.Forms.Button();
             this.rdbtnOverzichtHistorie = new System.Windows.Forms.RadioButton();
@@ -38,21 +39,24 @@
             this.rdbRapportStatistiek = new System.Windows.Forms.RadioButton();
             this.rdbtnRapportEventVrij = new System.Windows.Forms.RadioButton();
             this.grpBoxLogin = new System.Windows.Forms.GroupBox();
+            this.btnRegistreren = new System.Windows.Forms.Button();
             this.btnLogin = new System.Windows.Forms.Button();
             this.lblPasswoord = new System.Windows.Forms.Label();
             this.lblGebruikersnaam = new System.Windows.Forms.Label();
-            this.txtPassword = new System.Windows.Forms.TextBox();
-            this.txtGebruikersnaam = new System.Windows.Forms.TextBox();
+            this.txtBoxWachtwoord = new System.Windows.Forms.TextBox();
+            this.txtBoxGebruikersnaam = new System.Windows.Forms.TextBox();
             this.grpBoxLoggedIn = new System.Windows.Forms.GroupBox();
+            this.btnAfmelden = new System.Windows.Forms.Button();
             this.btnGo = new System.Windows.Forms.Button();
             this.rdbInschrijvenEvent = new System.Windows.Forms.RadioButton();
             this.rdbUItschrijvenEvent = new System.Windows.Forms.RadioButton();
             this.rdbtnAanmakenEvent = new System.Windows.Forms.RadioButton();
-            this.btnAfmelden = new System.Windows.Forms.Button();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.grpBoxOverzicht.SuspendLayout();
             this.grpBoxRapport.SuspendLayout();
             this.grpBoxLogin.SuspendLayout();
             this.grpBoxLoggedIn.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // grpBoxOverzicht
@@ -155,11 +159,12 @@
             // 
             // grpBoxLogin
             // 
+            this.grpBoxLogin.Controls.Add(this.btnRegistreren);
             this.grpBoxLogin.Controls.Add(this.btnLogin);
             this.grpBoxLogin.Controls.Add(this.lblPasswoord);
             this.grpBoxLogin.Controls.Add(this.lblGebruikersnaam);
-            this.grpBoxLogin.Controls.Add(this.txtPassword);
-            this.grpBoxLogin.Controls.Add(this.txtGebruikersnaam);
+            this.grpBoxLogin.Controls.Add(this.txtBoxWachtwoord);
+            this.grpBoxLogin.Controls.Add(this.txtBoxGebruikersnaam);
             this.grpBoxLogin.Location = new System.Drawing.Point(19, 24);
             this.grpBoxLogin.Name = "grpBoxLogin";
             this.grpBoxLogin.Size = new System.Drawing.Size(419, 158);
@@ -167,14 +172,25 @@
             this.grpBoxLogin.TabStop = false;
             this.grpBoxLogin.Text = "Login";
             // 
+            // btnRegistreren
+            // 
+            this.btnRegistreren.Location = new System.Drawing.Point(126, 106);
+            this.btnRegistreren.Name = "btnRegistreren";
+            this.btnRegistreren.Size = new System.Drawing.Size(149, 23);
+            this.btnRegistreren.TabIndex = 5;
+            this.btnRegistreren.Text = "Registreren";
+            this.btnRegistreren.UseVisualStyleBackColor = true;
+            this.btnRegistreren.Click += new System.EventHandler(this.btnRegistreren_Click);
+            // 
             // btnLogin
             // 
-            this.btnLogin.Location = new System.Drawing.Point(126, 102);
+            this.btnLogin.Location = new System.Drawing.Point(126, 77);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(149, 23);
             this.btnLogin.TabIndex = 4;
             this.btnLogin.Text = "Login";
             this.btnLogin.UseVisualStyleBackColor = true;
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
             // lblPasswoord
             // 
@@ -194,20 +210,20 @@
             this.lblGebruikersnaam.TabIndex = 2;
             this.lblGebruikersnaam.Text = "Gebruikersnaam:";
             // 
-            // txtPassword
+            // txtBoxWachtwoord
             // 
-            this.txtPassword.Location = new System.Drawing.Point(126, 51);
-            this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(150, 20);
-            this.txtPassword.TabIndex = 1;
-            this.txtPassword.UseSystemPasswordChar = true;
+            this.txtBoxWachtwoord.Location = new System.Drawing.Point(126, 51);
+            this.txtBoxWachtwoord.Name = "txtBoxWachtwoord";
+            this.txtBoxWachtwoord.Size = new System.Drawing.Size(150, 20);
+            this.txtBoxWachtwoord.TabIndex = 1;
+            this.txtBoxWachtwoord.UseSystemPasswordChar = true;
             // 
-            // txtGebruikersnaam
+            // txtBoxGebruikersnaam
             // 
-            this.txtGebruikersnaam.Location = new System.Drawing.Point(126, 25);
-            this.txtGebruikersnaam.Name = "txtGebruikersnaam";
-            this.txtGebruikersnaam.Size = new System.Drawing.Size(150, 20);
-            this.txtGebruikersnaam.TabIndex = 0;
+            this.txtBoxGebruikersnaam.Location = new System.Drawing.Point(126, 25);
+            this.txtBoxGebruikersnaam.Name = "txtBoxGebruikersnaam";
+            this.txtBoxGebruikersnaam.Size = new System.Drawing.Size(150, 20);
+            this.txtBoxGebruikersnaam.TabIndex = 0;
             // 
             // grpBoxLoggedIn
             // 
@@ -216,12 +232,22 @@
             this.grpBoxLoggedIn.Controls.Add(this.rdbInschrijvenEvent);
             this.grpBoxLoggedIn.Controls.Add(this.rdbUItschrijvenEvent);
             this.grpBoxLoggedIn.Controls.Add(this.rdbtnAanmakenEvent);
-            this.grpBoxLoggedIn.Location = new System.Drawing.Point(19, 18);
+            this.grpBoxLoggedIn.Location = new System.Drawing.Point(20, 18);
             this.grpBoxLoggedIn.Name = "grpBoxLoggedIn";
             this.grpBoxLoggedIn.Size = new System.Drawing.Size(419, 158);
             this.grpBoxLoggedIn.TabIndex = 5;
             this.grpBoxLoggedIn.TabStop = false;
             this.grpBoxLoggedIn.Text = "Welkom";
+            // 
+            // btnAfmelden
+            // 
+            this.btnAfmelden.Location = new System.Drawing.Point(278, 127);
+            this.btnAfmelden.Name = "btnAfmelden";
+            this.btnAfmelden.Size = new System.Drawing.Size(135, 25);
+            this.btnAfmelden.TabIndex = 4;
+            this.btnAfmelden.Text = "Afmelden";
+            this.btnAfmelden.UseVisualStyleBackColor = true;
+            this.btnAfmelden.Click += new System.EventHandler(this.btnAfmelden_Click);
             // 
             // btnGo
             // 
@@ -265,14 +291,9 @@
             this.rdbtnAanmakenEvent.Text = "Event aanmaken";
             this.rdbtnAanmakenEvent.UseVisualStyleBackColor = true;
             // 
-            // btnAfmelden
+            // errorProvider
             // 
-            this.btnAfmelden.Location = new System.Drawing.Point(278, 127);
-            this.btnAfmelden.Name = "btnAfmelden";
-            this.btnAfmelden.Size = new System.Drawing.Size(135, 25);
-            this.btnAfmelden.TabIndex = 4;
-            this.btnAfmelden.Text = "Afmelden";
-            this.btnAfmelden.UseVisualStyleBackColor = true;
+            this.errorProvider.ContainerControl = this;
             // 
             // Main
             // 
@@ -293,6 +314,7 @@
             this.grpBoxLogin.PerformLayout();
             this.grpBoxLoggedIn.ResumeLayout(false);
             this.grpBoxLoggedIn.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -309,7 +331,7 @@
         private System.Windows.Forms.RadioButton rdbRapportStatistiek;
         private System.Windows.Forms.RadioButton rdbtnRapportEventVrij;
         private System.Windows.Forms.GroupBox grpBoxLogin;
-        private System.Windows.Forms.TextBox txtGebruikersnaam;
+        private System.Windows.Forms.TextBox txtBoxGebruikersnaam;
         private System.Windows.Forms.GroupBox grpBoxLoggedIn;
         private System.Windows.Forms.Button btnGo;
         private System.Windows.Forms.RadioButton rdbInschrijvenEvent;
@@ -318,8 +340,10 @@
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.Label lblPasswoord;
         private System.Windows.Forms.Label lblGebruikersnaam;
-        private System.Windows.Forms.TextBox txtPassword;
+        private System.Windows.Forms.TextBox txtBoxWachtwoord;
         private System.Windows.Forms.Button btnAfmelden;
+        private System.Windows.Forms.Button btnRegistreren;
+        private System.Windows.Forms.ErrorProvider errorProvider;
     }
 }
 

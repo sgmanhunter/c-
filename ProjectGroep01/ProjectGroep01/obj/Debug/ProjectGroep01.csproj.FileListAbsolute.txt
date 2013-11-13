@@ -17,10 +17,9 @@ C:\Users\Kenny Deblaere\Documents\GitHub\c-\ProjectGroep01\ProjectGroep01\bin\De
 C:\Users\Kenny Deblaere\Documents\GitHub\c-\ProjectGroep01\ProjectGroep01\bin\Debug\ProjectGroep01.pdb
 C:\Users\Kenny Deblaere\Documents\GitHub\c-\ProjectGroep01\ProjectGroep01\obj\Debug\ProjectGroep01.csprojResolveAssemblyReference.cache
 C:\Users\Kenny Deblaere\Documents\GitHub\c-\ProjectGroep01\ProjectGroep01\obj\Debug\ProjectGroep01.Properties.Resources.resources
-C:\Users\Kenny Deblaere\Documents\GitHub\c-\ProjectGroep01\ProjectGroep01\obj\Debug\ProjectGroep01.Main.resources
 C:\Users\Kenny Deblaere\Documents\GitHub\c-\ProjectGroep01\ProjectGroep01\obj\Debug\ProjectGroep01.csproj.GenerateResource.Cache
 C:\Users\Administrator\Documents\GitHub\c-\ProjectGroep01\ProjectGroep01\bin\Debug\ProjectGroep01.exe.config
 C:\Users\Administrator\Documents\GitHub\c-\ProjectGroep01\ProjectGroep01\obj\Debug\ProjectGroep01.exe
 C:\Users\Administrator\Documents\GitHub\c-\ProjectGroep01\ProjectGroep01\obj\Debug\ProjectGroep01.pdb
-C:\Users\Kenny Deblaere\Documents\GitHub\c-\ProjectGroep01\ProjectGroep01\bin\Debug\ITEvents.data.dll
-C:\Users\Kenny Deblaere\Documents\GitHub\c-\ProjectGroep01\ProjectGroep01\bin\Debug\ITEvents.data.pdb
+C:\Users\Kenny Deblaere\Documents\GitHub\c-\ProjectGroep01\ProjectGroep01\obj\Debug\ProjectGroep01.View.Main.resources
+C:\Users\Kenny Deblaere\Documents\GitHub\c-\ProjectGroep01\ProjectGroep01\obj\Debug\ProjectGroep01.View.RegistreerFrame.resources
