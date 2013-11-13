@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ITEvents.data.Evenementen;
 
-namespace ProjectGroep01.Model
+namespace ITEvents.data.People
 {
     class Lid
     {
@@ -15,7 +16,7 @@ namespace ProjectGroep01.Model
         private DateTime geboortedatum;
         private bool man;
         private string email;
-        private List<ITEvent> events;
+        private List<ITEvenement> events;
         #endregion
 
         #region properties
@@ -85,7 +86,7 @@ namespace ProjectGroep01.Model
                 email = value;
             }
         }
-        public List<ITEvent> Events
+        public List<ITEvenement> Events
         {
             get
             {
@@ -99,7 +100,7 @@ namespace ProjectGroep01.Model
         #endregion
 
         #region constructors
-        public Lid(string voornaam, string familienaam, DateTime geboortedatum, bool man, string email, List<ITEvent> events)
+        public Lid(string voornaam, string familienaam, DateTime geboortedatum, bool man, string email, List<ITEvenement> events)
         {
             Lidnr = Leden.LedenInstantie.BerekenNieuwLidNummer();
             Voornaam = voornaam;
@@ -110,7 +111,7 @@ namespace ProjectGroep01.Model
             Events = events;
         }
         public Lid(string voornaam, string familienaam, DateTime geboortedatum, bool man, string email)
-            : this(voornaam, familienaam, geboortedatum, man, email, new List<ITEvent>())
+            : this(voornaam, familienaam, geboortedatum, man, email, new List<ITEvenement>())
         {
         }
         #endregion

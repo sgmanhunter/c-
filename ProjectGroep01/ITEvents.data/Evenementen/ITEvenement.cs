@@ -6,7 +6,7 @@ using System.Text;
 
 namespace ITEvents.data.Evenementen
 {
-    public class ITEvenement : IEvenement
+    public class ITEvenement
     {
         #region datamembers
         private int eventNummer;
@@ -53,7 +53,7 @@ namespace ITEvents.data.Evenementen
         #region constructors
         public ITEvenement(string eventNaam, Plaats plaats, int aantalInschrijvingen, int aantalPlaatsen)
         {
-            EventNummer = ITEvenementen.EventsInstantie.BerekenNieuwEventNummer();
+            EventNummer = ITEvenementen.EvenementenInstantie.BerekenNieuwEventNummer();
             Plaats = plaats;
             AantalInschrijvingen = aantalInschrijvingen;
             AantalPlaatsen = aantalPlaatsen;

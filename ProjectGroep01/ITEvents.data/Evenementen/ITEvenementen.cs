@@ -3,34 +3,33 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ITEvents.data.Evenementen;
 
-namespace ITEvents.data.People
+namespace ITEvents.data.Evenementen
 {
-    class Leden:List<Lid>
+    class ITEvenementen:List<ITEvenement>
     {
         #region datamembers
-        private static Leden ledenInstantie = new Leden();
+        private static ITEvenementen evenementInstantie = new ITEvenementen();
         private int huidigLidNummer;
         #endregion
 
         #region properties
-        public static Leden LedenInstantie
+        public static ITEvenementen EvenementenInstantie
         {
-            get { return ledenInstantie; }
-            private set { ledenInstantie = value; }
+            get { return evenementInstantie; }
+            private set { evenementInstantie = value; }
         }
         #endregion
 
         #region constructor
-        private Leden()
+        private ITEvenementen()
         {
             huidigLidNummer = 0;
         }
         #endregion
 
         #region methods
-        public int BerekenNieuwLidNummer()
+        public int BerekenNieuwEventNummer()
         {
             huidigLidNummer++;
             return huidigLidNummer;

@@ -1,5 +1,4 @@
-﻿using ITEvents.data.Evenementen;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,8 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
-using ITEvents.data.Evenementen;
 
 
 namespace ProjectGroep01
@@ -21,18 +18,6 @@ namespace ProjectGroep01
             InitializeComponent();
             grpBoxLoggedIn.Visible = true;
             grpBoxLogin.Visible = false;
-
-
-            EvenementFactory.MakeEventArgs args = new MakeITEvenementArgs();
-            EvenementFactory itfac = new ITEvenementFactory();
-
-            args.Naam = "test";
-            args.Plaats = new ITEvents.data.People.Plaats() { HuisNummer = "1", Stad = "Sats", Straatnaam = "diksmuide" };
-
-            IEvenement ev = itfac.MakeEvent(args);
-            
-            
-
         }
     }
 }
