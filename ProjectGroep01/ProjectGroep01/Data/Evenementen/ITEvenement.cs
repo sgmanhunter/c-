@@ -73,5 +73,17 @@ namespace ProjectGroep01.Data.Evenementen
         {
         }
         #endregion 
+
+        #region overrides
+
+        public override string ToString()
+        {
+            string r = "";
+            r = string.Format("Nummer: {0} - Eventnaam: {1} - Adres: {2} {3} {4} - Datum {5} - Aantal inschrijvingen/Aantal plaatsen: {6}/{7}", 
+                EventNummer, EventNaam, Plaats.Straatnaam, Plaats.HuisNummer, Plaats.Stad, Datum.ToShortDateString(), AantalInschrijvingen, AantalPlaatsen);
+            return  r;
+        }
+
+        #endregion
     }
 }

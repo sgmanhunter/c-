@@ -206,11 +206,10 @@
             // 
             this.dTPgeboortedatum.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dTPgeboortedatum.Location = new System.Drawing.Point(162, 75);
-            this.dTPgeboortedatum.MaxDate = new System.DateTime(2013, 11, 13, 21, 29, 21, 831);
+            this.dTPgeboortedatum.MaxDate = System.DateTime.Now; ;
             this.dTPgeboortedatum.Name = "dTPgeboortedatum";
             this.dTPgeboortedatum.Size = new System.Drawing.Size(138, 20);
             this.dTPgeboortedatum.TabIndex = 18;
-            this.dTPgeboortedatum.Value = new System.DateTime(2013, 11, 13, 0, 0, 0, 0);
             // 
             // lblGeboortedatum
             // 

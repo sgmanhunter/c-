@@ -178,11 +178,10 @@
             // 
             this.dtpDatum.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpDatum.Location = new System.Drawing.Point(120, 54);
-            this.dtpDatum.MaxDate = System.DateTime.Now;
             this.dtpDatum.Name = "dtpDatum";
             this.dtpDatum.Size = new System.Drawing.Size(155, 20);
             this.dtpDatum.TabIndex = 14;
-            this.dtpDatum.Value = new System.DateTime(2013, 11, 13, 0, 0, 0, 0);
+            this.dtpDatum.Value = System.DateTime.Now;
             // 
             // lblDatum
             // 

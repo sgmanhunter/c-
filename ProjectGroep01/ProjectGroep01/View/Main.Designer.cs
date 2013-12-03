@@ -32,7 +32,7 @@
             this.grpBoxOverzicht = new System.Windows.Forms.GroupBox();
             this.btnOverzicht = new System.Windows.Forms.Button();
             this.rdbtnOverzichtHistorie = new System.Windows.Forms.RadioButton();
-            this.rdbOverzichtEventVrij = new System.Windows.Forms.RadioButton();
+            this.rdbtnOverzichtEventVrij = new System.Windows.Forms.RadioButton();
             this.rdbtnOverzichtEventVolzet = new System.Windows.Forms.RadioButton();
             this.grpBoxRapport = new System.Windows.Forms.GroupBox();
             this.btnRapport = new System.Windows.Forms.Button();
@@ -52,18 +52,23 @@
             this.rdbUItschrijvenEvent = new System.Windows.Forms.RadioButton();
             this.rdbtnAanmakenEvent = new System.Windows.Forms.RadioButton();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.grpBoxEigenEvent = new System.Windows.Forms.GroupBox();
+            this.rdbtnOverzichtEigenEvent = new System.Windows.Forms.RadioButton();
+            this.rbtnRapportEigenEvent = new System.Windows.Forms.RadioButton();
+            this.btnEigenEvent = new System.Windows.Forms.Button();
             this.grpBoxOverzicht.SuspendLayout();
             this.grpBoxRapport.SuspendLayout();
             this.grpBoxLogin.SuspendLayout();
             this.grpBoxLoggedIn.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
+            this.grpBoxEigenEvent.SuspendLayout();
             this.SuspendLayout();
             // 
             // grpBoxOverzicht
             // 
             this.grpBoxOverzicht.Controls.Add(this.btnOverzicht);
             this.grpBoxOverzicht.Controls.Add(this.rdbtnOverzichtHistorie);
-            this.grpBoxOverzicht.Controls.Add(this.rdbOverzichtEventVrij);
+            this.grpBoxOverzicht.Controls.Add(this.rdbtnOverzichtEventVrij);
             this.grpBoxOverzicht.Controls.Add(this.rdbtnOverzichtEventVolzet);
             this.grpBoxOverzicht.Location = new System.Drawing.Point(12, 192);
             this.grpBoxOverzicht.Name = "grpBoxOverzicht";
@@ -80,6 +85,7 @@
             this.btnOverzicht.TabIndex = 3;
             this.btnOverzicht.Text = "Overzicht";
             this.btnOverzicht.UseVisualStyleBackColor = true;
+            this.btnOverzicht.Click += new System.EventHandler(this.btnOverzicht_Click);
             // 
             // rdbtnOverzichtHistorie
             // 
@@ -94,14 +100,14 @@
             // 
             // rdbOverzichtEventVrij
             // 
-            this.rdbOverzichtEventVrij.AutoSize = true;
-            this.rdbOverzichtEventVrij.Location = new System.Drawing.Point(22, 52);
-            this.rdbOverzichtEventVrij.Name = "rdbOverzichtEventVrij";
-            this.rdbOverzichtEventVrij.Size = new System.Drawing.Size(88, 17);
-            this.rdbOverzichtEventVrij.TabIndex = 1;
-            this.rdbOverzichtEventVrij.TabStop = true;
-            this.rdbOverzichtEventVrij.Text = "Vrije Eventen";
-            this.rdbOverzichtEventVrij.UseVisualStyleBackColor = true;
+            this.rdbtnOverzichtEventVrij.AutoSize = true;
+            this.rdbtnOverzichtEventVrij.Location = new System.Drawing.Point(22, 52);
+            this.rdbtnOverzichtEventVrij.Name = "rdbOverzichtEventVrij";
+            this.rdbtnOverzichtEventVrij.Size = new System.Drawing.Size(88, 17);
+            this.rdbtnOverzichtEventVrij.TabIndex = 1;
+            this.rdbtnOverzichtEventVrij.TabStop = true;
+            this.rdbtnOverzichtEventVrij.Text = "Vrije Eventen";
+            this.rdbtnOverzichtEventVrij.UseVisualStyleBackColor = true;
             // 
             // rdbtnOverzichtEventVolzet
             // 
@@ -227,6 +233,7 @@
             // 
             // grpBoxLoggedIn
             // 
+            this.grpBoxLoggedIn.Controls.Add(this.grpBoxEigenEvent);
             this.grpBoxLoggedIn.Controls.Add(this.btnAfmelden);
             this.grpBoxLoggedIn.Controls.Add(this.btnGo);
             this.grpBoxLoggedIn.Controls.Add(this.rdbInschrijvenEvent);
@@ -297,6 +304,49 @@
             this.errorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.errorProvider.ContainerControl = this;
             // 
+            // grpBoxEigenEvent
+            // 
+            this.grpBoxEigenEvent.Controls.Add(this.btnEigenEvent);
+            this.grpBoxEigenEvent.Controls.Add(this.rbtnRapportEigenEvent);
+            this.grpBoxEigenEvent.Controls.Add(this.rdbtnOverzichtEigenEvent);
+            this.grpBoxEigenEvent.Location = new System.Drawing.Point(237, 25);
+            this.grpBoxEigenEvent.Name = "grpBoxEigenEvent";
+            this.grpBoxEigenEvent.Size = new System.Drawing.Size(165, 95);
+            this.grpBoxEigenEvent.TabIndex = 5;
+            this.grpBoxEigenEvent.TabStop = false;
+            this.grpBoxEigenEvent.Text = "Eigen eventen";
+            // 
+            // rdbtnOverzichtEigenEvent
+            // 
+            this.rdbtnOverzichtEigenEvent.AutoSize = true;
+            this.rdbtnOverzichtEigenEvent.Location = new System.Drawing.Point(16, 19);
+            this.rdbtnOverzichtEigenEvent.Name = "rdbtnOverzichtEigenEvent";
+            this.rdbtnOverzichtEigenEvent.Size = new System.Drawing.Size(70, 17);
+            this.rdbtnOverzichtEigenEvent.TabIndex = 0;
+            this.rdbtnOverzichtEigenEvent.TabStop = true;
+            this.rdbtnOverzichtEigenEvent.Text = "Overzicht";
+            this.rdbtnOverzichtEigenEvent.UseVisualStyleBackColor = true;
+            // 
+            // rbtnRapportEigenEvent
+            // 
+            this.rbtnRapportEigenEvent.AutoSize = true;
+            this.rbtnRapportEigenEvent.Location = new System.Drawing.Point(16, 42);
+            this.rbtnRapportEigenEvent.Name = "rbtnRapportEigenEvent";
+            this.rbtnRapportEigenEvent.Size = new System.Drawing.Size(63, 17);
+            this.rbtnRapportEigenEvent.TabIndex = 1;
+            this.rbtnRapportEigenEvent.TabStop = true;
+            this.rbtnRapportEigenEvent.Text = "Rapport";
+            this.rbtnRapportEigenEvent.UseVisualStyleBackColor = true;
+            // 
+            // btnEigenEvent
+            // 
+            this.btnEigenEvent.Location = new System.Drawing.Point(16, 58);
+            this.btnEigenEvent.Name = "btnEigenEvent";
+            this.btnEigenEvent.Size = new System.Drawing.Size(137, 29);
+            this.btnEigenEvent.TabIndex = 2;
+            this.btnEigenEvent.Text = "Bekijk";
+            this.btnEigenEvent.UseVisualStyleBackColor = true;
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -318,6 +368,8 @@
             this.grpBoxLoggedIn.ResumeLayout(false);
             this.grpBoxLoggedIn.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
+            this.grpBoxEigenEvent.ResumeLayout(false);
+            this.grpBoxEigenEvent.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -327,7 +379,7 @@
         private System.Windows.Forms.GroupBox grpBoxOverzicht;
         private System.Windows.Forms.Button btnOverzicht;
         private System.Windows.Forms.RadioButton rdbtnOverzichtHistorie;
-        private System.Windows.Forms.RadioButton rdbOverzichtEventVrij;
+        private System.Windows.Forms.RadioButton rdbtnOverzichtEventVrij;
         private System.Windows.Forms.RadioButton rdbtnOverzichtEventVolzet;
         private System.Windows.Forms.GroupBox grpBoxRapport;
         private System.Windows.Forms.Button btnRapport;
@@ -347,6 +399,10 @@
         private System.Windows.Forms.Button btnAfmelden;
         private System.Windows.Forms.Button btnRegistreren;
         private System.Windows.Forms.ErrorProvider errorProvider;
+        private System.Windows.Forms.GroupBox grpBoxEigenEvent;
+        private System.Windows.Forms.Button btnEigenEvent;
+        private System.Windows.Forms.RadioButton rbtnRapportEigenEvent;
+        private System.Windows.Forms.RadioButton rdbtnOverzichtEigenEvent;
     }
 }
 

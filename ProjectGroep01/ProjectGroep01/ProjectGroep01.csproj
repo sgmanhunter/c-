@@ -50,12 +50,14 @@
     <Compile Include="Data\People\Leden.cs" />
     <Compile Include="Data\People\Lid.cs" />
     <Compile Include="Data\People\Plaats.cs" />
+    <Compile Include="Data\Enumeraties.cs" />
     <Compile Include="View\AanmaakEventForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="View\AanmaakEventForm.Designer.cs">
       <DependentUpon>AanmaakEventForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\IObserver.cs" />
     <Compile Include="View\Main.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -64,6 +66,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="View\OverzichtForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\OverzichtForm.Designer.cs">
+      <DependentUpon>OverzichtForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\RegistreerFrame.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -84,6 +92,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\OverzichtForm.resx">
+      <DependentUpon>OverzichtForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\RegistreerFrame.resx">
       <DependentUpon>RegistreerFrame.cs</DependentUpon>

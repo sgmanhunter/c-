@@ -97,5 +97,25 @@ namespace ProjectGroep01.View
                 avf.ShowDialog();
             }
         }
+
+        private void btnOverzicht_Click(object sender, EventArgs e)
+        {
+            OverzichtForm of;
+            if (rdbtnOverzichtEventVrij.Checked)
+            {
+                of = new OverzichtForm(Data.ToonLijst.vrijeEvents);
+                of.Show();
+            }
+            if (rdbtnOverzichtEventVolzet.Checked)
+            {
+                of = new OverzichtForm(Data.ToonLijst.volzetteEvents);
+                of.Show();
+            }
+            if (rdbtnOverzichtHistorie.Checked)
+            {
+                of = new OverzichtForm(Data.ToonLijst.voorbijeEvents);
+                of.Show();
+            }
+        }
     }
 }
