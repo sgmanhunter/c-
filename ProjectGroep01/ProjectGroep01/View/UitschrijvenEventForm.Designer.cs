@@ -68,6 +68,7 @@
             this.Controls.Add(this.btnUitschrijven);
             this.Controls.Add(this.chklstbxUitschrijven);
             this.Name = "UitschrijvenEventForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Uitschrijven";
             this.ResumeLayout(false);
 

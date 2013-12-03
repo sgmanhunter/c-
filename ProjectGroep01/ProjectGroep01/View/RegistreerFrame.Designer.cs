@@ -206,7 +206,7 @@
             // 
             this.dTPgeboortedatum.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dTPgeboortedatum.Location = new System.Drawing.Point(162, 75);
-            this.dTPgeboortedatum.MaxDate = System.DateTime.Now; ;
+            this.dTPgeboortedatum.MaxDate = System.DateTime.Now;
             this.dTPgeboortedatum.Name = "dTPgeboortedatum";
             this.dTPgeboortedatum.Size = new System.Drawing.Size(138, 20);
             this.dTPgeboortedatum.TabIndex = 18;

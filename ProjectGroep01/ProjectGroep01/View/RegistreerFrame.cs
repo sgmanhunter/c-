@@ -25,7 +25,7 @@ namespace ProjectGroep01.View
             {
                 string voornaam = txtBoxVoornaam.Text;
                 string familienaam = txtBoxFamilienaam.Text;
-                string gebruikersnaam = txtBoxGebruikersnaam.Text;
+                string gebruikersnaam = txtBoxGebruikersnaam.Text.ToLower();
                 string wachtwoord = txtBoxWachtwoord.Text;
                 DateTime geboortedatum = dTPgeboortedatum.Value.Date;
                 string email = txtBoxEmail.Text;

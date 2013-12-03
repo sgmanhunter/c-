@@ -26,3 +26,4 @@ C:\Users\Kenny Deblaere\Documents\GitHub\c-\ProjectGroep01\ProjectGroep01\bin\De
 C:\Users\Kenny Deblaere\Documents\GitHub\c-\ProjectGroep01\ProjectGroep01\obj\Debug\ProjectGroep01.exe
 C:\Users\Kenny Deblaere\Documents\GitHub\c-\ProjectGroep01\ProjectGroep01\obj\Debug\ProjectGroep01.pdb
 C:\Users\Kenny Deblaere\Documents\GitHub\c-\ProjectGroep01\ProjectGroep01\obj\Debug\ProjectGroep01.View.UitschrijvenEventForm.resources
+C:\Users\Kenny Deblaere\Documents\GitHub\c-\ProjectGroep01\ProjectGroep01\obj\Debug\ProjectGroep01.csprojResolveAssemblyReference.cache

@@ -68,6 +68,7 @@
             this.Controls.Add(this.btnInschrijven);
             this.Controls.Add(this.chklstbxInschrijven);
             this.Name = "InschrijvenForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Inschrijven";
             this.ResumeLayout(false);
 

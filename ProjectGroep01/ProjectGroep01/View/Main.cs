@@ -92,7 +92,7 @@ namespace ProjectGroep01.View
         private void btnAfmelden_Click(object sender, EventArgs e)
         {
             IsLoggedIn = false;
-
+            Lidnummer = 0;
             GrpBoxPicker();
         }
 
