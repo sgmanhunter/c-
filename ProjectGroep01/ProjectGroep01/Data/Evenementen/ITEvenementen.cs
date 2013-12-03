@@ -10,7 +10,7 @@ namespace ProjectGroep01.Data.Evenementen
     {
         #region datamembers
         private static ITEvenementen evenementInstantie = new ITEvenementen();
-        private int huidigLidNummer;
+        private int huidigEventNummer;
         public delegate void NotifyHandler();
         public event NotifyHandler NotifyObservers;
         #endregion
@@ -26,7 +26,7 @@ namespace ProjectGroep01.Data.Evenementen
         #region constructor
         private ITEvenementen()
         {
-            huidigLidNummer = 0;
+            huidigEventNummer = 0;
             NotifyObservers += ITEvenementen_NotifyObservers;
         }
         #endregion
@@ -34,8 +34,8 @@ namespace ProjectGroep01.Data.Evenementen
         #region methods
         public int BerekenNieuwEventNummer()
         {
-            huidigLidNummer++;
-            return huidigLidNummer;
+            huidigEventNummer++;
+            return huidigEventNummer;
         }
         private void ITEvenementen_NotifyObservers()
         {

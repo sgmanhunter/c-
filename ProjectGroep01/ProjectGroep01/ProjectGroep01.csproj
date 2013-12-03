@@ -57,6 +57,12 @@
     <Compile Include="View\AanmaakEventForm.Designer.cs">
       <DependentUpon>AanmaakEventForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\InschrijvenForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\InschrijvenForm.Designer.cs">
+      <DependentUpon>InschrijvenForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\IObserver.cs" />
     <Compile Include="View\Main.cs">
       <SubType>Form</SubType>
@@ -78,6 +84,12 @@
     <Compile Include="View\RegistreerFrame.Designer.cs">
       <DependentUpon>RegistreerFrame.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\UitschrijvenEventForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\UitschrijvenEventForm.Designer.cs">
+      <DependentUpon>UitschrijvenEventForm.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -90,6 +102,9 @@
     <EmbeddedResource Include="View\AanmaakEventForm.resx">
       <DependentUpon>AanmaakEventForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\InschrijvenForm.resx">
+      <DependentUpon>InschrijvenForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
@@ -98,6 +113,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\RegistreerFrame.resx">
       <DependentUpon>RegistreerFrame.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UitschrijvenEventForm.resx">
+      <DependentUpon>UitschrijvenEventForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

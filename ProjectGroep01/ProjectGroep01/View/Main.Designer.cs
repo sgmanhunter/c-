@@ -46,22 +46,22 @@
             this.txtBoxWachtwoord = new System.Windows.Forms.TextBox();
             this.txtBoxGebruikersnaam = new System.Windows.Forms.TextBox();
             this.grpBoxLoggedIn = new System.Windows.Forms.GroupBox();
+            this.grpBoxEigenEvent = new System.Windows.Forms.GroupBox();
+            this.btnEigenEvent = new System.Windows.Forms.Button();
+            this.rbtnRapportEigenEvent = new System.Windows.Forms.RadioButton();
+            this.rdbtnOverzichtEigenEvent = new System.Windows.Forms.RadioButton();
             this.btnAfmelden = new System.Windows.Forms.Button();
             this.btnGo = new System.Windows.Forms.Button();
-            this.rdbInschrijvenEvent = new System.Windows.Forms.RadioButton();
+            this.rdbtnInschrijvenEvent = new System.Windows.Forms.RadioButton();
             this.rdbUItschrijvenEvent = new System.Windows.Forms.RadioButton();
             this.rdbtnAanmakenEvent = new System.Windows.Forms.RadioButton();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
-            this.grpBoxEigenEvent = new System.Windows.Forms.GroupBox();
-            this.rdbtnOverzichtEigenEvent = new System.Windows.Forms.RadioButton();
-            this.rbtnRapportEigenEvent = new System.Windows.Forms.RadioButton();
-            this.btnEigenEvent = new System.Windows.Forms.Button();
             this.grpBoxOverzicht.SuspendLayout();
             this.grpBoxRapport.SuspendLayout();
             this.grpBoxLogin.SuspendLayout();
             this.grpBoxLoggedIn.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.grpBoxEigenEvent.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // grpBoxOverzicht
@@ -98,11 +98,11 @@
             this.rdbtnOverzichtHistorie.Text = "Eventen in het verleden";
             this.rdbtnOverzichtHistorie.UseVisualStyleBackColor = true;
             // 
-            // rdbOverzichtEventVrij
+            // rdbtnOverzichtEventVrij
             // 
             this.rdbtnOverzichtEventVrij.AutoSize = true;
             this.rdbtnOverzichtEventVrij.Location = new System.Drawing.Point(22, 52);
-            this.rdbtnOverzichtEventVrij.Name = "rdbOverzichtEventVrij";
+            this.rdbtnOverzichtEventVrij.Name = "rdbtnOverzichtEventVrij";
             this.rdbtnOverzichtEventVrij.Size = new System.Drawing.Size(88, 17);
             this.rdbtnOverzichtEventVrij.TabIndex = 1;
             this.rdbtnOverzichtEventVrij.TabStop = true;
@@ -236,7 +236,7 @@
             this.grpBoxLoggedIn.Controls.Add(this.grpBoxEigenEvent);
             this.grpBoxLoggedIn.Controls.Add(this.btnAfmelden);
             this.grpBoxLoggedIn.Controls.Add(this.btnGo);
-            this.grpBoxLoggedIn.Controls.Add(this.rdbInschrijvenEvent);
+            this.grpBoxLoggedIn.Controls.Add(this.rdbtnInschrijvenEvent);
             this.grpBoxLoggedIn.Controls.Add(this.rdbUItschrijvenEvent);
             this.grpBoxLoggedIn.Controls.Add(this.rdbtnAanmakenEvent);
             this.grpBoxLoggedIn.Location = new System.Drawing.Point(20, 18);
@@ -245,6 +245,49 @@
             this.grpBoxLoggedIn.TabIndex = 5;
             this.grpBoxLoggedIn.TabStop = false;
             this.grpBoxLoggedIn.Text = "Welkom";
+            // 
+            // grpBoxEigenEvent
+            // 
+            this.grpBoxEigenEvent.Controls.Add(this.btnEigenEvent);
+            this.grpBoxEigenEvent.Controls.Add(this.rbtnRapportEigenEvent);
+            this.grpBoxEigenEvent.Controls.Add(this.rdbtnOverzichtEigenEvent);
+            this.grpBoxEigenEvent.Location = new System.Drawing.Point(237, 25);
+            this.grpBoxEigenEvent.Name = "grpBoxEigenEvent";
+            this.grpBoxEigenEvent.Size = new System.Drawing.Size(165, 95);
+            this.grpBoxEigenEvent.TabIndex = 5;
+            this.grpBoxEigenEvent.TabStop = false;
+            this.grpBoxEigenEvent.Text = "Eigen eventen";
+            // 
+            // btnEigenEvent
+            // 
+            this.btnEigenEvent.Location = new System.Drawing.Point(16, 58);
+            this.btnEigenEvent.Name = "btnEigenEvent";
+            this.btnEigenEvent.Size = new System.Drawing.Size(137, 29);
+            this.btnEigenEvent.TabIndex = 2;
+            this.btnEigenEvent.Text = "Bekijk";
+            this.btnEigenEvent.UseVisualStyleBackColor = true;
+            // 
+            // rbtnRapportEigenEvent
+            // 
+            this.rbtnRapportEigenEvent.AutoSize = true;
+            this.rbtnRapportEigenEvent.Location = new System.Drawing.Point(16, 42);
+            this.rbtnRapportEigenEvent.Name = "rbtnRapportEigenEvent";
+            this.rbtnRapportEigenEvent.Size = new System.Drawing.Size(63, 17);
+            this.rbtnRapportEigenEvent.TabIndex = 1;
+            this.rbtnRapportEigenEvent.TabStop = true;
+            this.rbtnRapportEigenEvent.Text = "Rapport";
+            this.rbtnRapportEigenEvent.UseVisualStyleBackColor = true;
+            // 
+            // rdbtnOverzichtEigenEvent
+            // 
+            this.rdbtnOverzichtEigenEvent.AutoSize = true;
+            this.rdbtnOverzichtEigenEvent.Location = new System.Drawing.Point(16, 19);
+            this.rdbtnOverzichtEigenEvent.Name = "rdbtnOverzichtEigenEvent";
+            this.rdbtnOverzichtEigenEvent.Size = new System.Drawing.Size(70, 17);
+            this.rdbtnOverzichtEigenEvent.TabIndex = 0;
+            this.rdbtnOverzichtEigenEvent.TabStop = true;
+            this.rdbtnOverzichtEigenEvent.Text = "Overzicht";
+            this.rdbtnOverzichtEigenEvent.UseVisualStyleBackColor = true;
             // 
             // btnAfmelden
             // 
@@ -266,16 +309,16 @@
             this.btnGo.UseVisualStyleBackColor = true;
             this.btnGo.Click += new System.EventHandler(this.btnGo_Click);
             // 
-            // rdbInschrijvenEvent
+            // rdbtnInschrijvenEvent
             // 
-            this.rdbInschrijvenEvent.AutoSize = true;
-            this.rdbInschrijvenEvent.Location = new System.Drawing.Point(26, 50);
-            this.rdbInschrijvenEvent.Name = "rdbInschrijvenEvent";
-            this.rdbInschrijvenEvent.Size = new System.Drawing.Size(131, 17);
-            this.rdbInschrijvenEvent.TabIndex = 2;
-            this.rdbInschrijvenEvent.TabStop = true;
-            this.rdbInschrijvenEvent.Text = "Inschrijven voor Event";
-            this.rdbInschrijvenEvent.UseVisualStyleBackColor = true;
+            this.rdbtnInschrijvenEvent.AutoSize = true;
+            this.rdbtnInschrijvenEvent.Location = new System.Drawing.Point(26, 50);
+            this.rdbtnInschrijvenEvent.Name = "rdbtnInschrijvenEvent";
+            this.rdbtnInschrijvenEvent.Size = new System.Drawing.Size(131, 17);
+            this.rdbtnInschrijvenEvent.TabIndex = 2;
+            this.rdbtnInschrijvenEvent.TabStop = true;
+            this.rdbtnInschrijvenEvent.Text = "Inschrijven voor Event";
+            this.rdbtnInschrijvenEvent.UseVisualStyleBackColor = true;
             // 
             // rdbUItschrijvenEvent
             // 
@@ -304,49 +347,6 @@
             this.errorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.errorProvider.ContainerControl = this;
             // 
-            // grpBoxEigenEvent
-            // 
-            this.grpBoxEigenEvent.Controls.Add(this.btnEigenEvent);
-            this.grpBoxEigenEvent.Controls.Add(this.rbtnRapportEigenEvent);
-            this.grpBoxEigenEvent.Controls.Add(this.rdbtnOverzichtEigenEvent);
-            this.grpBoxEigenEvent.Location = new System.Drawing.Point(237, 25);
-            this.grpBoxEigenEvent.Name = "grpBoxEigenEvent";
-            this.grpBoxEigenEvent.Size = new System.Drawing.Size(165, 95);
-            this.grpBoxEigenEvent.TabIndex = 5;
-            this.grpBoxEigenEvent.TabStop = false;
-            this.grpBoxEigenEvent.Text = "Eigen eventen";
-            // 
-            // rdbtnOverzichtEigenEvent
-            // 
-            this.rdbtnOverzichtEigenEvent.AutoSize = true;
-            this.rdbtnOverzichtEigenEvent.Location = new System.Drawing.Point(16, 19);
-            this.rdbtnOverzichtEigenEvent.Name = "rdbtnOverzichtEigenEvent";
-            this.rdbtnOverzichtEigenEvent.Size = new System.Drawing.Size(70, 17);
-            this.rdbtnOverzichtEigenEvent.TabIndex = 0;
-            this.rdbtnOverzichtEigenEvent.TabStop = true;
-            this.rdbtnOverzichtEigenEvent.Text = "Overzicht";
-            this.rdbtnOverzichtEigenEvent.UseVisualStyleBackColor = true;
-            // 
-            // rbtnRapportEigenEvent
-            // 
-            this.rbtnRapportEigenEvent.AutoSize = true;
-            this.rbtnRapportEigenEvent.Location = new System.Drawing.Point(16, 42);
-            this.rbtnRapportEigenEvent.Name = "rbtnRapportEigenEvent";
-            this.rbtnRapportEigenEvent.Size = new System.Drawing.Size(63, 17);
-            this.rbtnRapportEigenEvent.TabIndex = 1;
-            this.rbtnRapportEigenEvent.TabStop = true;
-            this.rbtnRapportEigenEvent.Text = "Rapport";
-            this.rbtnRapportEigenEvent.UseVisualStyleBackColor = true;
-            // 
-            // btnEigenEvent
-            // 
-            this.btnEigenEvent.Location = new System.Drawing.Point(16, 58);
-            this.btnEigenEvent.Name = "btnEigenEvent";
-            this.btnEigenEvent.Size = new System.Drawing.Size(137, 29);
-            this.btnEigenEvent.TabIndex = 2;
-            this.btnEigenEvent.Text = "Bekijk";
-            this.btnEigenEvent.UseVisualStyleBackColor = true;
-            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -367,9 +367,9 @@
             this.grpBoxLogin.PerformLayout();
             this.grpBoxLoggedIn.ResumeLayout(false);
             this.grpBoxLoggedIn.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.grpBoxEigenEvent.ResumeLayout(false);
             this.grpBoxEigenEvent.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -389,7 +389,7 @@
         private System.Windows.Forms.TextBox txtBoxGebruikersnaam;
         private System.Windows.Forms.GroupBox grpBoxLoggedIn;
         private System.Windows.Forms.Button btnGo;
-        private System.Windows.Forms.RadioButton rdbInschrijvenEvent;
+        private System.Windows.Forms.RadioButton rdbtnInschrijvenEvent;
         private System.Windows.Forms.RadioButton rdbUItschrijvenEvent;
         private System.Windows.Forms.RadioButton rdbtnAanmakenEvent;
         private System.Windows.Forms.Button btnLogin;

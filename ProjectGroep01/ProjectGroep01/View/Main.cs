@@ -15,18 +15,23 @@ namespace ProjectGroep01.View
     public partial class Main : Form
     {
         private bool isLoggedIn;
+        private int lidnummer;
 
         public bool IsLoggedIn
         {
             get { return isLoggedIn; }
             set { isLoggedIn = value; }
         }
+        public int Lidnummer
+        {
+            get { return lidnummer; }
+            set { lidnummer = value; }
+        }
         public Main()
         {
             InitializeComponent();
             IsLoggedIn = false;
             GrpBoxPicker();
-            
         }
 
         private void btnRegistreren_Click(object sender, EventArgs e)
@@ -56,7 +61,7 @@ namespace ProjectGroep01.View
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            string gebruikersnaam = txtBoxGebruikersnaam.Text;
+            string gebruikersnaam = txtBoxGebruikersnaam.Text.ToLower();
             string wachtwoord = txtBoxWachtwoord.Text;
             bool ok = false;
             int index=1;
@@ -76,6 +81,7 @@ namespace ProjectGroep01.View
             {
                 IsLoggedIn = true;
                 errorProvider.SetError(txtBoxWachtwoord, "");
+                Lidnummer = Leden.LedenInstantie[index].Lidnr;
             }
             else
                 errorProvider.SetError(txtBoxWachtwoord, "Uw wachtwoord klopt niet");
@@ -86,6 +92,7 @@ namespace ProjectGroep01.View
         private void btnAfmelden_Click(object sender, EventArgs e)
         {
             IsLoggedIn = false;
+
             GrpBoxPicker();
         }
 
@@ -95,6 +102,16 @@ namespace ProjectGroep01.View
             {
                 AanmaakEventForm avf = new AanmaakEventForm();
                 avf.ShowDialog();
+            }
+            else if (rdbtnInschrijvenEvent.Checked)
+            {
+                InschrijvenForm ief = new InschrijvenForm(Lidnummer);
+                ief.ShowDialog();
+            }
+            else
+            {
+                UitschrijvenEventForm uef = new UitschrijvenEventForm(Lidnummer);
+                uef.ShowDialog();
             }
         }
 

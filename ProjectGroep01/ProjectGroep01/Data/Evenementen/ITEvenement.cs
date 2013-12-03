@@ -59,6 +59,7 @@ namespace ProjectGroep01.Data.Evenementen
         public ITEvenement(string eventNaam, DateTime datum, Plaats plaats, int aantalInschrijvingen, int aantalPlaatsen)
         {
             EventNummer = ITEvenementen.EvenementInstantie.BerekenNieuwEventNummer();
+            EventNaam = eventNaam;
             Datum = datum;
             Plaats = plaats;
             AantalInschrijvingen = aantalInschrijvingen;
