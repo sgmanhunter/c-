@@ -16,7 +16,7 @@ namespace ProjectGroep01.View
 
         public OverzichtForm(Data.ToonLijst t)
         {
-            ITEvenementen.EvenementInstantie.NotifyObservers += Updating;
+            ITEvents.EventsInstantion.NotifyObservers += Updating;
             InitializeComponent();
             toonLijst = t;
 
@@ -25,22 +25,22 @@ namespace ProjectGroep01.View
 
         private void ToonLijst()
         {
-            List<ITEvenement> ite = new List<ITEvenement>();
+            List<ITEvent> ite = new List<ITEvent>();
             if (toonLijst != Data.ToonLijst.eigenEvents)
-                for (int i = 0; i < ITEvenementen.EvenementInstantie.Count; i++)
+                for (int i = 0; i < ITEvents.EventsInstantion.Count; i++)
                     switch (toonLijst)
                     {
                         case Data.ToonLijst.volzetteEvents:
-                            if (ITEvenementen.EvenementInstantie[i].AantalInschrijvingen == ITEvenementen.EvenementInstantie[i].AantalPlaatsen)
-                                ite.Add(ITEvenementen.EvenementInstantie[i]);
+                            if (ITEvents.EventsInstantion[i].AantalInschrijvingen == ITEvents.EventsInstantion[i].AantalPlaatsen)
+                                ite.Add(ITEvents.EventsInstantion[i]);
                             break;
                         case Data.ToonLijst.vrijeEvents:
-                            if (ITEvenementen.EvenementInstantie[i].AantalInschrijvingen < ITEvenementen.EvenementInstantie[i].AantalPlaatsen)
-                                ite.Add(ITEvenementen.EvenementInstantie[i]);
+                            if (ITEvents.EventsInstantion[i].AantalInschrijvingen < ITEvents.EventsInstantion[i].AantalPlaatsen)
+                                ite.Add(ITEvents.EventsInstantion[i]);
                             break;
                         case Data.ToonLijst.voorbijeEvents:
-                            if (ITEvenementen.EvenementInstantie[i].Datum < DateTime.Now)
-                                ite.Add(ITEvenementen.EvenementInstantie[i]);
+                            if (ITEvents.EventsInstantion[i].Datum < DateTime.Now)
+                                ite.Add(ITEvents.EventsInstantion[i]);
                             break;
                     }
             txtBoxEvent.Text = "";
@@ -55,7 +55,7 @@ namespace ProjectGroep01.View
 
         private void OverzichtForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            ITEvenementen.EvenementInstantie.NotifyObservers -= Updating;
+            ITEvents.EventsInstantion.NotifyObservers -= Updating;
         }
     }
 }

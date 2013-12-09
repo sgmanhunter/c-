@@ -65,9 +65,9 @@ namespace ProjectGroep01.View
             string wachtwoord = txtBoxWachtwoord.Text;
             bool ok = false;
             int index=1;
-            for (int i = 0; i < Leden.LedenInstantie.Count; i++)
+            for (int i = 0; i < Users.UsersInstantion.Count; i++)
             {
-                if (Leden.LedenInstantie[i].Gebruikersnaam == gebruikersnaam)
+                if (Users.UsersInstantion[i].Gebruikersnaam == gebruikersnaam)
                 {
                     ok = true;
                     index = i;
@@ -77,11 +77,11 @@ namespace ProjectGroep01.View
                 else
                     errorProvider.SetError(txtBoxGebruikersnaam, "Gebruikersnaam bestaat niet");
             }
-            if (ok && Leden.LedenInstantie[index].Wachtwoord == wachtwoord)
+            if (ok && Users.UsersInstantion[index].Wachtwoord == wachtwoord)
             {
                 IsLoggedIn = true;
                 errorProvider.SetError(txtBoxWachtwoord, "");
-                Lidnummer = Leden.LedenInstantie[index].Lidnr;
+                Lidnummer = Users.UsersInstantion[index].Lidnr;
             }
             else
                 errorProvider.SetError(txtBoxWachtwoord, "Uw wachtwoord klopt niet");

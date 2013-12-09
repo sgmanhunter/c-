@@ -30,8 +30,8 @@ namespace ProjectGroep01.View
                 string stad = txtBoxStad.Text;
                 int aantalPlaatsen = int.Parse(txtBoxAantalPlaatsen.Text);
                 int aantalInschrijvingen = int.Parse(txtBoxAantalInschrijvingen.Text);
-                ITEvenement ite = new ITEvenement(naam, datum, new Plaats(straat, huisnummer, stad), aantalInschrijvingen, aantalPlaatsen);
-                ITEvenementen.EvenementInstantie.Add(ite);
+                ITEvent ite = new ITEvent(naam, datum, new Plaats(straat, huisnummer, stad), aantalInschrijvingen, aantalPlaatsen);
+                ITEvents.EventsInstantion.Add(ite);
                 MessageBox.Show("Uw event is toegevoegd, u kunt zich nu inschrijven","Event aanmaken");
                 Close();
             }

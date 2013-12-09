@@ -26,16 +26,16 @@ namespace ProjectGroep01.View
         private void InitCheckListBoxInschrijven()
         {
             chklstbxInschrijven.Items.Clear();
-            for (int i = 0; i < ITEvenementen.EvenementInstantie.Count; i++)
-                chklstbxInschrijven.Items.Add(ITEvenementen.EvenementInstantie[i].EventNaam);
+            for (int i = 0; i < ITEvents.EventsInstantion.Count; i++)
+                chklstbxInschrijven.Items.Add(ITEvents.EventsInstantion[i].EventNaam);
         }
 
         private void btnInschrijven_Click(object sender, EventArgs e)
         {
             for (int i = 0; i < chklstbxInschrijven.CheckedIndices.Count; i++)
             {
-                Leden.LedenInstantie[lidnummer-1].Events.Add(ITEvenementen.EvenementInstantie[chklstbxInschrijven.CheckedIndices[i]]);
-                ITEvenementen.EvenementInstantie[chklstbxInschrijven.CheckedIndices[i]].AantalInschrijvingen++;
+                Users.UsersInstantion[lidnummer-1].Events.Add(ITEvents.EventsInstantion[chklstbxInschrijven.CheckedIndices[i]]);
+                ITEvents.EventsInstantion[chklstbxInschrijven.CheckedIndices[i]].AantalInschrijvingen++;
             }
             MessageBox.Show("Inschrijven gelukt", "Inschrijven");
             Close();

@@ -6,17 +6,17 @@ using System.Threading.Tasks;
 
 namespace ProjectGroep01.Data.Evenementen
 {
-    class ITEvenementen:List<ITEvenement>
+    class ITEvents:List<ITEvent>
     {
         #region datamembers
-        private static ITEvenementen evenementInstantie = new ITEvenementen();
+        private static ITEvents evenementInstantie = new ITEvents();
         private int huidigEventNummer;
         public delegate void NotifyHandler();
         public event NotifyHandler NotifyObservers;
         #endregion
 
         #region properties
-        public static ITEvenementen EvenementInstantie
+        public static ITEvents EventsInstantion
         {
             get { return evenementInstantie; }
             private set { evenementInstantie = value; }
@@ -24,7 +24,7 @@ namespace ProjectGroep01.Data.Evenementen
         #endregion
 
         #region constructor
-        private ITEvenementen()
+        private ITEvents()
         {
             huidigEventNummer = 0;
             NotifyObservers += ITEvenementen_NotifyObservers;
@@ -40,7 +40,7 @@ namespace ProjectGroep01.Data.Evenementen
         private void ITEvenementen_NotifyObservers()
         {
         }
-        public new void Add(ITEvenement ite)
+        public new void Add(ITEvent ite)
         {
             base.Add(ite);
             NotifyObservers();

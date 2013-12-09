@@ -6,7 +6,7 @@ using System.Text;
 
 namespace ProjectGroep01.Data.Evenementen
 {
-    public class ITEvenement
+    public class ITEvent
     {
         #region datamembers
         private int eventNummer;
@@ -56,20 +56,24 @@ namespace ProjectGroep01.Data.Evenementen
         #endregion 
 
         #region constructors
-        public ITEvenement(string eventNaam, DateTime datum, Plaats plaats, int aantalInschrijvingen, int aantalPlaatsen)
+        public ITEvent(string eventNaam, DateTime datum, Plaats plaats, int aantalInschrijvingen, int aantalPlaatsen)
         {
-            EventNummer = ITEvenementen.EvenementInstantie.BerekenNieuwEventNummer();
+            EventNummer = ITEvents.EventsInstantion.BerekenNieuwEventNummer();
             EventNaam = eventNaam;
             Datum = datum;
             Plaats = plaats;
             AantalInschrijvingen = aantalInschrijvingen;
             AantalPlaatsen = aantalPlaatsen;
         }
-        public ITEvenement(string eventNaam, DateTime datum, Plaats plaats)
+        public ITEvent(string eventNaam, DateTime datum, Plaats plaats)
             : this(eventNaam, datum, plaats, 0, 30)
         {
         }
-        public ITEvenement(string eventNaam, DateTime datum, Plaats plaats, int aantalPlaatsen)
+        public ITEvent(string eventNaam, Plaats plaats,int aantalPlaatsen)
+            : this(eventNaam, DateTime.Now, plaats, 0, aantalPlaatsen)
+        {
+        }
+        public ITEvent(string eventNaam, DateTime datum, Plaats plaats, int aantalPlaatsen)
             : this(eventNaam, datum, plaats, 0, aantalPlaatsen)
         {
         }

@@ -7,15 +7,15 @@ using ProjectGroep01.Data.Evenementen;
 
 namespace ProjectGroep01.Data.People
 {
-    class Leden:List<Lid>
+    class Users:List<User>
     {
         #region datamembers
-        private static Leden ledenInstantie = new Leden();
+        private static Users ledenInstantie = new Users();
         private int huidigLidNummer;
         #endregion
 
         #region properties
-        public static Leden LedenInstantie
+        public static Users UsersInstantion
         {
             get { return ledenInstantie; }
             private set { ledenInstantie = value; }
@@ -23,7 +23,7 @@ namespace ProjectGroep01.Data.People
         #endregion
 
         #region constructor
-        private Leden()
+        private Users()
         {
             huidigLidNummer = 0;
         }

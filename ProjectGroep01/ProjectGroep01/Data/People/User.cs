@@ -7,7 +7,7 @@ using ProjectGroep01.Data.Evenementen;
 
 namespace ProjectGroep01.Data.People
 {
-    class Lid
+    class User
     {
         #region datamembers
         private int lidnr;
@@ -18,7 +18,7 @@ namespace ProjectGroep01.Data.People
         private DateTime geboortedatum;
         private bool man;
         private string email;
-        private List<ITEvenement> events;
+        private List<ITEvent> events;
         #endregion
 
         #region properties
@@ -98,7 +98,7 @@ namespace ProjectGroep01.Data.People
                 email = value;
             }
         }
-        public List<ITEvenement> Events
+        public List<ITEvent> Events
         {
             get
             {
@@ -112,9 +112,9 @@ namespace ProjectGroep01.Data.People
         #endregion
 
         #region constructors
-        public Lid(string voornaam, string familienaam, string gebruikersnaam, string wachtwoord, DateTime geboortedatum, bool man, string email, List<ITEvenement> events)
+        public User(string voornaam, string familienaam, string gebruikersnaam, string wachtwoord, DateTime geboortedatum, bool man, string email, List<ITEvent> events)
         {
-            Lidnr = Leden.LedenInstantie.BerekenNieuwLidNummer();
+            Lidnr = Users.UsersInstantion.BerekenNieuwLidNummer();
             Voornaam = voornaam;
             Familienaam = familienaam;
             Gebruikersnaam = gebruikersnaam;
@@ -124,8 +124,8 @@ namespace ProjectGroep01.Data.People
             Email = email;
             Events = events;
         }
-        public Lid(string voornaam, string familienaam, string gebruikersnaam, string wachtoord, DateTime geboortedatum, bool man, string email)
-            : this(voornaam, familienaam, gebruikersnaam, wachtoord, geboortedatum, man, email, new List<ITEvenement>())
+        public User(string voornaam, string familienaam, string gebruikersnaam, string wachtoord, DateTime geboortedatum, bool man, string email)
+            : this(voornaam, familienaam, gebruikersnaam, wachtoord, geboortedatum, man, email, new List<ITEvent>())
         {
         }
         #endregion

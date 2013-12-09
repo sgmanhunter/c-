@@ -26,16 +26,16 @@ namespace ProjectGroep01.View
         private void InitCheckListBoxUitschrijven()
         {
             chklstbxUitschrijven.Items.Clear();
-            for (int i = 0; i < Leden.LedenInstantie[lidnummer].Events.Count; i++)
-                chklstbxUitschrijven.Items.Add(Leden.LedenInstantie[lidnummer].Events[i].EventNaam);
+            for (int i = 0; i < Users.UsersInstantion[lidnummer].Events.Count; i++)
+                chklstbxUitschrijven.Items.Add(Users.UsersInstantion[lidnummer].Events[i].EventNaam);
         }
 
         private void btnUitschrijven_Click(object sender, EventArgs e)
         {
             for (int i = 0; i < chklstbxUitschrijven.CheckedIndices.Count; i++)
             {
-                Leden.LedenInstantie[lidnummer-1].Events.RemoveAt(chklstbxUitschrijven.CheckedIndices[i]);
-                ITEvenementen.EvenementInstantie[chklstbxUitschrijven.CheckedIndices[i]].AantalInschrijvingen--;
+                Users.UsersInstantion[lidnummer-1].Events.RemoveAt(chklstbxUitschrijven.CheckedIndices[i]);
+                ITEvents.EventsInstantion[chklstbxUitschrijven.CheckedIndices[i]].AantalInschrijvingen--;
             }
             MessageBox.Show("Uitschrijven gelukt", "Uitschrijven");
             Close();

@@ -30,8 +30,8 @@ namespace ProjectGroep01.View
                 DateTime geboortedatum = dTPgeboortedatum.Value.Date;
                 string email = txtBoxEmail.Text;
                 bool geslacht = rdbtnMan.Checked;
-                Lid lid = new Lid(voornaam, familienaam, gebruikersnaam, wachtwoord, geboortedatum, geslacht, email);
-                Leden.LedenInstantie.Add(lid);
+                User lid = new User(voornaam, familienaam, gebruikersnaam, wachtwoord, geboortedatum, geslacht, email);
+                Users.UsersInstantion.Add(lid);
                 MessageBox.Show("Uw registratie is gelukt!","Registreren");
                 Close();
             }
@@ -61,7 +61,6 @@ namespace ProjectGroep01.View
                 errorProvider.SetError(t, "");
                 return true;
             }
-            
         }
         private bool ControleWachtwoord()
         {
