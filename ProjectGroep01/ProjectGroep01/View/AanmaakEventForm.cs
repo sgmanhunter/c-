@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using ProjectGroep01.Data.People;
 using ProjectGroep01.Data.Evenementen;
+using ProjectGroep01.Data.Databank;
 
 namespace ProjectGroep01.View
 {
@@ -32,6 +33,7 @@ namespace ProjectGroep01.View
                 int aantalInschrijvingen = int.Parse(txtBoxAantalInschrijvingen.Text);
                 ITEvent ite = new ITEvent(naam, datum, new Plaats(straat, huisnummer, stad), aantalInschrijvingen, aantalPlaatsen);
                 ITEvents.EventsInstantion.Add(ite);
+                Databank.DatabankInstantie.AddEvent(ite);
                 MessageBox.Show("Uw event is toegevoegd, u kunt zich nu inschrijven","Event aanmaken");
                 Close();
             }

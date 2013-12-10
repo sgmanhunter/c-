@@ -49,7 +49,7 @@ namespace ProjectGroep01.Data.Databank
             for (int i = 0; i < csGroep01DataSet.events.Rows.Count; i++)
             {
                 ITEvent ite = new ITEvent(csGroep01DataSet.events[i].eventname, csGroep01DataSet.events[i].eventdate,
-                    new Plaats(csGroep01DataSet.events[i].streetname, csGroep01DataSet.events[i].housenumber, csGroep01DataSet.events[i].location), 
+                    new Plaats("", csGroep01DataSet.events[i].housenumber, csGroep01DataSet.events[i].location), 
                     csGroep01DataSet.events[i].maxparticipants);
                 ITEvents.EventsInstantion.Add(ite);
             }
@@ -77,6 +77,17 @@ namespace ProjectGroep01.Data.Databank
             userRow.male = user.Man;
         }
 
+        private void FillEventRow(CSGroep01DataSet.eventsRow eventsRow, ITEvent ite)
+        {
+            eventsRow.eventid = ite.EventNummer;
+            eventsRow.eventname = ite.EventNaam;
+            eventsRow.eventdate = ite.Datum;
+            eventsRow.location = ite.Plaats.Stad;
+            eventsRow.housenumber = ite.Plaats.HuisNummer;
+            //eventsRow.streetname = ite.Plaats.Straatnaam;
+            eventsRow.maxparticipants = ite.AantalPlaatsen;
+        }
+
         public void AddUser(User user)
         {
             CSGroep01DataSet.userRow userRow = csGroep01DataSet.user.NewuserRow();
@@ -84,6 +95,15 @@ namespace ProjectGroep01.Data.Databank
             csGroep01DataSet.user.Rows.Add(userRow);
 
             uta.Update(csGroep01DataSet.user);
+        }
+
+        public void AddEvent(ITEvent ite)
+        {
+            CSGroep01DataSet.eventsRow eventsRow = csGroep01DataSet.events.NeweventsRow();
+            FillEventRow(eventsRow, ite);
+            csGroep01DataSet.events.Rows.Add(eventsRow);
+
+            eta.Update(csGroep01DataSet.events);
         }
     }
 }

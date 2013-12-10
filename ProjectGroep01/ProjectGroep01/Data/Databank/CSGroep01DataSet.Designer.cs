@@ -375,8 +375,6 @@ namespace ProjectGroep01.Data.Databank {
             
             private global::System.Data.DataColumn columnmaxparticipants;
             
-            private global::System.Data.DataColumn columnstreetname;
-            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public eventsDataTable() {
@@ -460,14 +458,6 @@ namespace ProjectGroep01.Data.Databank {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn streetnameColumn {
-                get {
-                    return this.columnstreetname;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -503,7 +493,7 @@ namespace ProjectGroep01.Data.Databank {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public eventsRow AddeventsRow(int eventid, string eventname, System.DateTime eventdate, string location, int housenumber, int maxparticipants, string streetname) {
+            public eventsRow AddeventsRow(int eventid, string eventname, System.DateTime eventdate, string location, int housenumber, int maxparticipants) {
                 eventsRow roweventsRow = ((eventsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         eventid,
@@ -511,8 +501,7 @@ namespace ProjectGroep01.Data.Databank {
                         eventdate,
                         location,
                         housenumber,
-                        maxparticipants,
-                        streetname};
+                        maxparticipants};
                 roweventsRow.ItemArray = columnValuesArray;
                 this.Rows.Add(roweventsRow);
                 return roweventsRow;
@@ -548,7 +537,6 @@ namespace ProjectGroep01.Data.Databank {
                 this.columnlocation = base.Columns["location"];
                 this.columnhousenumber = base.Columns["housenumber"];
                 this.columnmaxparticipants = base.Columns["maxparticipants"];
-                this.columnstreetname = base.Columns["streetname"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -566,8 +554,6 @@ namespace ProjectGroep01.Data.Databank {
                 base.Columns.Add(this.columnhousenumber);
                 this.columnmaxparticipants = new global::System.Data.DataColumn("maxparticipants", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnmaxparticipants);
-                this.columnstreetname = new global::System.Data.DataColumn("streetname", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnstreetname);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columneventid}, true));
                 this.columneventid.AllowDBNull = false;
@@ -1439,22 +1425,6 @@ namespace ProjectGroep01.Data.Databank {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string streetname {
-                get {
-                    try {
-                        return ((string)(this[this.tableevents.streetnameColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'streetname\' in table \'events\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableevents.streetnameColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IseventdateNull() {
                 return this.IsNull(this.tableevents.eventdateColumn);
             }
@@ -1475,18 +1445,6 @@ namespace ProjectGroep01.Data.Databank {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetlocationNull() {
                 this[this.tableevents.locationColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsstreetnameNull() {
-                return this.IsNull(this.tableevents.streetnameColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetstreetnameNull() {
-                this[this.tableevents.streetnameColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2017,12 +1975,12 @@ SELECT eventid, eventname, eventdate, location, housenumber, maxparticipants FRO
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT eventid, eventname, eventdate, location, housenumber, maxparticipants FROM" +
-                " dbo.events";
+                " events";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
             this._commandCollection[1].CommandText = "SELECT eventid, eventname, eventdate, location, housenumber, maxparticipants FROM" +
-                " dbo.events WHERE eventid = @eventid";
+                " events WHERE (eventid = @eventid)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@eventid", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "eventid", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
