@@ -30,7 +30,7 @@ namespace ProjectGroep01.View
                 int huisnummer = int.Parse(txtBoxHuisnummer.Text);
                 string stad = txtBoxStad.Text;
                 int aantalPlaatsen = int.Parse(txtBoxAantalPlaatsen.Text);
-                int aantalInschrijvingen = int.Parse(txtBoxAantalInschrijvingen.Text);
+                int aantalInschrijvingen = 0;
                 ITEvent ite = new ITEvent(naam, datum, new Plaats(straat, huisnummer, stad), aantalInschrijvingen, aantalPlaatsen);
                 ITEvents.EventsInstantion.Add(ite);
                 Databank.DatabankInstantie.AddEvent(ite);
@@ -46,7 +46,7 @@ namespace ProjectGroep01.View
         private bool Controle()
         {
             bool ok = ControleerString(txtBoxEventNaam) & ControleerString(txtBoxStraatNaam) & ControleerInteger(txtBoxHuisnummer)
-                & ControleerString(txtBoxStad) & ControleerInteger(txtBoxAantalPlaatsen) & ControleerInteger(txtBoxAantalInschrijvingen);
+                & ControleerString(txtBoxStad) & ControleerInteger(txtBoxAantalPlaatsen);
             return ok;
         }
         private bool ControleerString(TextBox t)

@@ -266,6 +266,7 @@
             this.btnEigenEvent.TabIndex = 2;
             this.btnEigenEvent.Text = "Bekijk";
             this.btnEigenEvent.UseVisualStyleBackColor = true;
+            this.btnEigenEvent.Click += new System.EventHandler(this.btnEigenEvent_Click);
             // 
             // rbtnRapportEigenEvent
             // 

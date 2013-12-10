@@ -35,11 +35,18 @@ namespace ProjectGroep01.View
         {
             for (int i = 0; i < chklstbxInschrijven.CheckedIndices.Count; i++)
             {
-                Users.UsersInstantion[lidnummer-1].Events.Add(ITEvents.EventsInstantion[chklstbxInschrijven.CheckedIndices[i]]);
-                Databank.DatabankInstantie.AddUserAndEvent(Users.UsersInstantion[lidnummer - 1], ITEvents.EventsInstantion[chklstbxInschrijven.CheckedIndices[i]]);
-                ITEvents.EventsInstantion[chklstbxInschrijven.CheckedIndices[i]].AantalInschrijvingen++;
+                if (ITEvents.EventsInstantion[chklstbxInschrijven.CheckedIndices[i]].AantalInschrijvingen < ITEvents.EventsInstantion[chklstbxInschrijven.CheckedIndices[i]].AantalPlaatsen)
+                {
+                    Users.UsersInstantion[lidnummer - 1].Events.Add(ITEvents.EventsInstantion[chklstbxInschrijven.CheckedIndices[i]]);
+                    Databank.DatabankInstantie.AddUserAndEvent(Users.UsersInstantion[lidnummer - 1], ITEvents.EventsInstantion[chklstbxInschrijven.CheckedIndices[i]]);
+                    ITEvents.EventsInstantion[chklstbxInschrijven.CheckedIndices[i]].AantalInschrijvingen++;
+                }
+                else
+                {
+                    MessageBox.Show("Fout, de reeks zit al vol", "Fout");
+                }
             }
-            MessageBox.Show("Inschrijven gelukt", "Inschrijven");
+            MessageBox.Show("Inschrijven voltooid", "Inschrijven");
             Close();
         }
 

@@ -46,7 +46,7 @@
             this.ClientSize = new System.Drawing.Size(761, 267);
             this.Controls.Add(this.txtBoxEvent);
             this.Name = "OverzichtForm";
-            this.Text = "Overzicht van Eventen";
+            this.Text = "Overzicht van Evenementen";
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -241,7 +241,7 @@ SELECT userid, username, firstname, lastname, birthday, male, email, password FR
   <xs:element name="CSGroep01DataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="CSGroep01DataSet" msprop:Generator_UserDSName="CSGroep01DataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="events" msprop:Generator_TableClassName="eventsDataTable" msprop:Generator_TableVarName="tableevents" msprop:Generator_RowChangedName="eventsRowChanged" msprop:Generator_TablePropName="events" msprop:Generator_RowDeletingName="eventsRowDeleting" msprop:Generator_RowChangingName="eventsRowChanging" msprop:Generator_RowEvHandlerName="eventsRowChangeEventHandler" msprop:Generator_RowDeletedName="eventsRowDeleted" msprop:Generator_RowClassName="eventsRow" msprop:Generator_UserTableName="events" msprop:Generator_RowEvArgName="eventsRowChangeEvent">
+        <xs:element name="events" msprop:Generator_TableClassName="eventsDataTable" msprop:Generator_TableVarName="tableevents" msprop:Generator_TablePropName="events" msprop:Generator_RowDeletingName="eventsRowDeleting" msprop:Generator_RowChangingName="eventsRowChanging" msprop:Generator_RowEvHandlerName="eventsRowChangeEventHandler" msprop:Generator_RowDeletedName="eventsRowDeleted" msprop:Generator_UserTableName="events" msprop:Generator_RowChangedName="eventsRowChanged" msprop:Generator_RowEvArgName="eventsRowChangeEvent" msprop:Generator_RowClassName="eventsRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="eventid" msprop:Generator_ColumnVarNameInTable="columneventid" msprop:Generator_ColumnPropNameInRow="eventid" msprop:Generator_ColumnPropNameInTable="eventidColumn" msprop:Generator_UserColumnName="eventid" type="xs:int" />
@@ -265,7 +265,7 @@ SELECT userid, username, firstname, lastname, birthday, male, email, password FR
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="signup" msprop:Generator_TableClassName="signupDataTable" msprop:Generator_TableVarName="tablesignup" msprop:Generator_RowChangedName="signupRowChanged" msprop:Generator_TablePropName="signup" msprop:Generator_RowDeletingName="signupRowDeleting" msprop:Generator_RowChangingName="signupRowChanging" msprop:Generator_RowEvHandlerName="signupRowChangeEventHandler" msprop:Generator_RowDeletedName="signupRowDeleted" msprop:Generator_RowClassName="signupRow" msprop:Generator_UserTableName="signup" msprop:Generator_RowEvArgName="signupRowChangeEvent">
+        <xs:element name="signup" msprop:Generator_TableClassName="signupDataTable" msprop:Generator_TableVarName="tablesignup" msprop:Generator_TablePropName="signup" msprop:Generator_RowDeletingName="signupRowDeleting" msprop:Generator_RowChangingName="signupRowChanging" msprop:Generator_RowEvHandlerName="signupRowChangeEventHandler" msprop:Generator_RowDeletedName="signupRowDeleted" msprop:Generator_UserTableName="signup" msprop:Generator_RowChangedName="signupRowChanged" msprop:Generator_RowEvArgName="signupRowChangeEvent" msprop:Generator_RowClassName="signupRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="userid" msprop:Generator_ColumnVarNameInTable="columnuserid" msprop:Generator_ColumnPropNameInRow="userid" msprop:Generator_ColumnPropNameInTable="useridColumn" msprop:Generator_UserColumnName="userid" type="xs:int" />
@@ -273,7 +273,7 @@ SELECT userid, username, firstname, lastname, birthday, male, email, password FR
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="user" msprop:Generator_TableClassName="userDataTable" msprop:Generator_TableVarName="tableuser" msprop:Generator_RowChangedName="userRowChanged" msprop:Generator_TablePropName="user" msprop:Generator_RowDeletingName="userRowDeleting" msprop:Generator_RowChangingName="userRowChanging" msprop:Generator_RowEvHandlerName="userRowChangeEventHandler" msprop:Generator_RowDeletedName="userRowDeleted" msprop:Generator_RowClassName="userRow" msprop:Generator_UserTableName="user" msprop:Generator_RowEvArgName="userRowChangeEvent">
+        <xs:element name="user" msprop:Generator_TableClassName="userDataTable" msprop:Generator_TableVarName="tableuser" msprop:Generator_TablePropName="user" msprop:Generator_RowDeletingName="userRowDeleting" msprop:Generator_RowChangingName="userRowChanging" msprop:Generator_RowEvHandlerName="userRowChangeEventHandler" msprop:Generator_RowDeletedName="userRowDeleted" msprop:Generator_UserTableName="user" msprop:Generator_RowChangedName="userRowChanged" msprop:Generator_RowEvArgName="userRowChangeEvent" msprop:Generator_RowClassName="userRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="userid" msprop:Generator_ColumnVarNameInTable="columnuserid" msprop:Generator_ColumnPropNameInRow="userid" msprop:Generator_ColumnPropNameInTable="useridColumn" msprop:Generator_UserColumnName="userid" type="xs:int" />
@@ -323,10 +323,6 @@ SELECT userid, username, firstname, lastname, birthday, male, email, password FR
       <xs:selector xpath=".//mstns:events" />
       <xs:field xpath="mstns:eventid" />
     </xs:unique>
-    <xs:unique name="signup_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
-      <xs:selector xpath=".//mstns:signup" />
-      <xs:field xpath="mstns:userid" />
-    </xs:unique>
     <xs:unique name="user_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:user" />
       <xs:field xpath="mstns:userid" />
@@ -334,8 +330,8 @@ SELECT userid, username, firstname, lastname, birthday, male, email, password FR
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="events_signup" msdata:parent="events" msdata:child="signup" msdata:parentkey="eventid" msdata:childkey="eventid" msprop:Generator_UserChildTable="signup" msprop:Generator_ChildPropName="GetsignupRows" msprop:Generator_UserRelationName="events_signup" msprop:Generator_ParentPropName="eventsRow" msprop:Generator_RelationVarName="relationevents_signup" msprop:Generator_UserParentTable="events" />
-      <msdata:Relationship name="user_signup" msdata:parent="user" msdata:child="signup" msdata:parentkey="userid" msdata:childkey="userid" msprop:Generator_UserChildTable="signup" msprop:Generator_ChildPropName="GetsignupRows" msprop:Generator_UserRelationName="user_signup" msprop:Generator_RelationVarName="relationuser_signup" msprop:Generator_UserParentTable="user" msprop:Generator_ParentPropName="userRow" />
+      <msdata:Relationship name="events_signup" msdata:parent="events" msdata:child="signup" msdata:parentkey="eventid" msdata:childkey="eventid" msprop:Generator_UserChildTable="signup" msprop:Generator_ChildPropName="GetsignupRows" msprop:Generator_UserRelationName="events_signup" msprop:Generator_RelationVarName="relationevents_signup" msprop:Generator_UserParentTable="events" msprop:Generator_ParentPropName="eventsRow" />
+      <msdata:Relationship name="user_signup" msdata:parent="user" msdata:child="signup" msdata:parentkey="userid" msdata:childkey="userid" msprop:Generator_UserChildTable="signup" msprop:Generator_ChildPropName="GetsignupRows" msprop:Generator_UserRelationName="user_signup" msprop:Generator_ParentPropName="userRow" msprop:Generator_RelationVarName="relationuser_signup" msprop:Generator_UserParentTable="user" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>

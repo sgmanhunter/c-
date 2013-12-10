@@ -31,6 +31,7 @@ namespace ProjectGroep01.View
         {
             InitializeComponent();
             IsLoggedIn = false;
+            Lidnummer = 0;
             GrpBoxPicker();
         }
 
@@ -131,6 +132,16 @@ namespace ProjectGroep01.View
             if (rdbtnOverzichtHistorie.Checked)
             {
                 of = new OverzichtForm(Data.ToonLijst.voorbijeEvents);
+                of.Show();
+            }
+        }
+
+        private void btnEigenEvent_Click(object sender, EventArgs e)
+        {
+            OverzichtForm of;
+            if (rdbtnOverzichtEigenEvent.Checked)
+            {
+                of = new OverzichtForm(Data.ToonLijst.eigenEvents, Lidnummer);
                 of.Show();
             }
         }

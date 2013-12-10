@@ -804,13 +804,6 @@ namespace ProjectGroep01.Data.Databank {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public signupRow FindByuserid(int userid) {
-                return ((signupRow)(this.Rows.Find(new object[] {
-                            userid})));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public override global::System.Data.DataTable Clone() {
                 signupDataTable cln = ((signupDataTable)(base.Clone()));
                 cln.InitVars();
@@ -837,10 +830,7 @@ namespace ProjectGroep01.Data.Databank {
                 base.Columns.Add(this.columnuserid);
                 this.columneventid = new global::System.Data.DataColumn("eventid", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columneventid);
-                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnuserid}, true));
                 this.columnuserid.AllowDBNull = false;
-                this.columnuserid.Unique = true;
                 this.columneventid.AllowDBNull = false;
             }
             
@@ -2517,14 +2507,6 @@ SELECT eventid, eventname, eventdate, location, housenumber, maxparticipants FRO
                     this.Adapter.UpdateCommand.Connection.Close();
                 }
             }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int eventid, int Original_userid, int Original_eventid) {
-            return this.Update(Original_userid, eventid, Original_userid, Original_eventid);
         }
     }
     

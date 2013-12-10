@@ -34,13 +34,11 @@
             this.lblHuisnummer = new System.Windows.Forms.Label();
             this.lblStad = new System.Windows.Forms.Label();
             this.lblAantalPlaatsen = new System.Windows.Forms.Label();
-            this.lblAantalInschrijvingen = new System.Windows.Forms.Label();
             this.txtBoxEventNaam = new System.Windows.Forms.TextBox();
             this.txtBoxStraatNaam = new System.Windows.Forms.TextBox();
             this.txtBoxHuisnummer = new System.Windows.Forms.TextBox();
             this.txtBoxStad = new System.Windows.Forms.TextBox();
             this.txtBoxAantalPlaatsen = new System.Windows.Forms.TextBox();
-            this.txtBoxAantalInschrijvingen = new System.Windows.Forms.TextBox();
             this.btnAanmaken = new System.Windows.Forms.Button();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.btnAnnuleren = new System.Windows.Forms.Button();
@@ -94,15 +92,6 @@
             this.lblAantalPlaatsen.TabIndex = 4;
             this.lblAantalPlaatsen.Text = "Aantal Plaatsen:";
             // 
-            // lblAantalInschrijvingen
-            // 
-            this.lblAantalInschrijvingen.AutoSize = true;
-            this.lblAantalInschrijvingen.Location = new System.Drawing.Point(6, 187);
-            this.lblAantalInschrijvingen.Name = "lblAantalInschrijvingen";
-            this.lblAantalInschrijvingen.Size = new System.Drawing.Size(108, 13);
-            this.lblAantalInschrijvingen.TabIndex = 5;
-            this.lblAantalInschrijvingen.Text = "Aantal Inschrijvingen:";
-            // 
             // txtBoxEventNaam
             // 
             this.txtBoxEventNaam.Location = new System.Drawing.Point(120, 28);
@@ -140,15 +129,6 @@
             this.txtBoxAantalPlaatsen.Text = "30";
             this.txtBoxAantalPlaatsen.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // txtBoxAantalInschrijvingen
-            // 
-            this.txtBoxAantalInschrijvingen.Location = new System.Drawing.Point(120, 184);
-            this.txtBoxAantalInschrijvingen.Name = "txtBoxAantalInschrijvingen";
-            this.txtBoxAantalInschrijvingen.Size = new System.Drawing.Size(155, 20);
-            this.txtBoxAantalInschrijvingen.TabIndex = 11;
-            this.txtBoxAantalInschrijvingen.Text = "0";
-            this.txtBoxAantalInschrijvingen.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
             // btnAanmaken
             // 
             this.btnAanmaken.Location = new System.Drawing.Point(9, 210);
@@ -181,7 +161,7 @@
             this.dtpDatum.Name = "dtpDatum";
             this.dtpDatum.Size = new System.Drawing.Size(155, 20);
             this.dtpDatum.TabIndex = 14;
-            this.dtpDatum.Value = System.DateTime.Now;
+            this.dtpDatum.Value = new System.DateTime(2013, 12, 10, 20, 6, 49, 517);
             // 
             // lblDatum
             // 
@@ -201,13 +181,11 @@
             this.Controls.Add(this.dtpDatum);
             this.Controls.Add(this.btnAnnuleren);
             this.Controls.Add(this.btnAanmaken);
-            this.Controls.Add(this.txtBoxAantalInschrijvingen);
             this.Controls.Add(this.txtBoxAantalPlaatsen);
             this.Controls.Add(this.txtBoxStad);
             this.Controls.Add(this.txtBoxHuisnummer);
             this.Controls.Add(this.txtBoxStraatNaam);
             this.Controls.Add(this.txtBoxEventNaam);
-            this.Controls.Add(this.lblAantalInschrijvingen);
             this.Controls.Add(this.lblAantalPlaatsen);
             this.Controls.Add(this.lblStad);
             this.Controls.Add(this.lblHuisnummer);
@@ -229,13 +207,11 @@
         private System.Windows.Forms.Label lblHuisnummer;
         private System.Windows.Forms.Label lblStad;
         private System.Windows.Forms.Label lblAantalPlaatsen;
-        private System.Windows.Forms.Label lblAantalInschrijvingen;
         private System.Windows.Forms.TextBox txtBoxEventNaam;
         private System.Windows.Forms.TextBox txtBoxStraatNaam;
         private System.Windows.Forms.TextBox txtBoxHuisnummer;
         private System.Windows.Forms.TextBox txtBoxStad;
         private System.Windows.Forms.TextBox txtBoxAantalPlaatsen;
-        private System.Windows.Forms.TextBox txtBoxAantalInschrijvingen;
         private System.Windows.Forms.Button btnAanmaken;
         private System.Windows.Forms.ErrorProvider errorProvider;
         private System.Windows.Forms.Button btnAnnuleren;
