@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ProjectGroep01.Data.People;
+using ProjectGroep01.Data.Databank;
 
 namespace ProjectGroep01.View
 {
@@ -30,8 +31,9 @@ namespace ProjectGroep01.View
                 DateTime geboortedatum = dTPgeboortedatum.Value.Date;
                 string email = txtBoxEmail.Text;
                 bool geslacht = rdbtnMan.Checked;
-                User lid = new User(voornaam, familienaam, gebruikersnaam, wachtwoord, geboortedatum, geslacht, email);
-                Users.UsersInstantion.Add(lid);
+                User user = new User(voornaam, familienaam, gebruikersnaam, wachtwoord, geboortedatum, geslacht, email);
+                Users.UsersInstantion.Add(user);
+                Databank.DatabankInstantie.AddUser(user);
                 MessageBox.Show("Uw registratie is gelukt!","Registreren");
                 Close();
             }

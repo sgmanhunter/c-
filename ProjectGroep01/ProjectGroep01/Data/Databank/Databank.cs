@@ -14,7 +14,7 @@ namespace ProjectGroep01.Data.Databank
     {
         private static Databank databankInstantie = new Databank();
         private CSGroep01DataSet csGroep01DataSet;
-        private usersTableAdapter uta;
+        private userTableAdapter uta;
         private signupTableAdapter sta;
         private eventsTableAdapter eta;
 
@@ -26,19 +26,19 @@ namespace ProjectGroep01.Data.Databank
         private Databank()
         {
             csGroep01DataSet = new CSGroep01DataSet();
-            uta = new usersTableAdapter();
+            uta = new userTableAdapter();
             sta = new signupTableAdapter();
             eta = new eventsTableAdapter();
         }
 
         public void ReadUsers()
         {
-            uta.Fill(csGroep01DataSet.users);
-            for (int i = 0; i < csGroep01DataSet.users.Rows.Count; i++)
+            uta.Fill(csGroep01DataSet.user);
+            for (int i = 0; i < csGroep01DataSet.user.Rows.Count; i++)
             {
-                User user = new User(csGroep01DataSet.users[i].firstname,csGroep01DataSet.users[i].lastname,
-                    csGroep01DataSet.users[i].username,csGroep01DataSet.users[i].password,
-                    DateTime.Parse(csGroep01DataSet.users[i].birthday),csGroep01DataSet.users[i].male,csGroep01DataSet.users[i].email);
+                User user = new User(csGroep01DataSet.user[i].firstname,csGroep01DataSet.user[i].lastname,
+                    csGroep01DataSet.user[i].username,csGroep01DataSet.user[i].password,
+                    csGroep01DataSet.user[i].birthday,csGroep01DataSet.user[i].male,csGroep01DataSet.user[i].email);
                 Users.UsersInstantion.Add(user);
             }
         }
@@ -48,16 +48,42 @@ namespace ProjectGroep01.Data.Databank
             eta.Fill(csGroep01DataSet.events);
             for (int i = 0; i < csGroep01DataSet.events.Rows.Count; i++)
             {
-                ITEvent ite = new ITEvent(csGroep01DataSet.events[i].eventname, 
-                    new Plaats("", 0, csGroep01DataSet.events[i].location), 
+                ITEvent ite = new ITEvent(csGroep01DataSet.events[i].eventname, csGroep01DataSet.events[i].eventdate,
+                    new Plaats(csGroep01DataSet.events[i].streetname, csGroep01DataSet.events[i].housenumber, csGroep01DataSet.events[i].location), 
                     csGroep01DataSet.events[i].maxparticipants);
                 ITEvents.EventsInstantion.Add(ite);
             }
         }
 
-        public void ReadUsersAndEvents(int lidnr)
+        public void ReadUsersAndEvents()
         {
-            
+            sta.Fill(csGroep01DataSet.signup);
+            for (int i = 0; i < csGroep01DataSet.signup.Rows.Count; i++)
+            {
+                Users.UsersInstantion[(csGroep01DataSet.signup[i].userid) - 1].Events.Add(ITEvents.EventsInstantion[(csGroep01DataSet.signup[i].eventid) - 1]);
+                ITEvents.EventsInstantion[(csGroep01DataSet.signup[i].eventid) - 1].AantalInschrijvingen++;
+            }
+        }
+
+        private void FillUserRow(CSGroep01DataSet.userRow userRow, User user)
+        {
+            userRow.userid = user.Lidnr;
+            userRow.firstname = user.Voornaam;
+            userRow.lastname = user.Familienaam;
+            userRow.username = user.Gebruikersnaam;
+            userRow.password = user.Wachtwoord;
+            userRow.birthday = user.Geboortedatum;
+            userRow.email = user.Email;
+            userRow.male = user.Man;
+        }
+
+        public void AddUser(User user)
+        {
+            CSGroep01DataSet.userRow userRow = csGroep01DataSet.user.NewuserRow();
+            FillUserRow(userRow, user);
+            csGroep01DataSet.user.Rows.Add(userRow);
+
+            uta.Update(csGroep01DataSet.user);
         }
     }
 }
