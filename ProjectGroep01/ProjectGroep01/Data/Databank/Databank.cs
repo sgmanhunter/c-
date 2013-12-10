@@ -120,5 +120,12 @@ namespace ProjectGroep01.Data.Databank
 
             sta.Update(csGroep01DataSet.signup);
         }
+
+        public void DeleteUserAndEvent(User user, ITEvent ite)
+        {
+            sta.DeleteByUserIdAndEventId(user.Lidnr, ite.EventNummer);
+
+            sta.Update(csGroep01DataSet.signup);
+        }
     }
 }

@@ -27,7 +27,7 @@ namespace ProjectGroep01.Data.Evenementen
         private ITEvents()
         {
             huidigEventNummer = 0;
-            NotifyObservers += ITEvenementen_NotifyObservers;
+            NotifyObservers += ITEvents_NotifyObservers;
         }
         #endregion
 
@@ -37,7 +37,7 @@ namespace ProjectGroep01.Data.Evenementen
             huidigEventNummer++;
             return huidigEventNummer;
         }
-        private void ITEvenementen_NotifyObservers()
+        private void ITEvents_NotifyObservers()
         {
         }
         public new void Add(ITEvent ite)

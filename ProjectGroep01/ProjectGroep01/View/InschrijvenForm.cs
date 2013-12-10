@@ -28,6 +28,8 @@ namespace ProjectGroep01.View
         {
             chklstbxInschrijven.Items.Clear();
             for (int i = 0; i < ITEvents.EventsInstantion.Count; i++)
+                if (ITEvents.EventsInstantion[i].AantalInschrijvingen < ITEvents.EventsInstantion[i].AantalPlaatsen
+                    && ITEvents.EventsInstantion[i].Datum >= DateTime.Today && !Users.UsersInstantion[lidnummer].Events.Contains(ITEvents.EventsInstantion[i]))
                 chklstbxInschrijven.Items.Add(ITEvents.EventsInstantion[i].EventNaam);
         }
 
@@ -35,16 +37,10 @@ namespace ProjectGroep01.View
         {
             for (int i = 0; i < chklstbxInschrijven.CheckedIndices.Count; i++)
             {
-                if (ITEvents.EventsInstantion[chklstbxInschrijven.CheckedIndices[i]].AantalInschrijvingen < ITEvents.EventsInstantion[chklstbxInschrijven.CheckedIndices[i]].AantalPlaatsen)
-                {
-                    Users.UsersInstantion[lidnummer - 1].Events.Add(ITEvents.EventsInstantion[chklstbxInschrijven.CheckedIndices[i]]);
-                    Databank.DatabankInstantie.AddUserAndEvent(Users.UsersInstantion[lidnummer - 1], ITEvents.EventsInstantion[chklstbxInschrijven.CheckedIndices[i]]);
-                    ITEvents.EventsInstantion[chklstbxInschrijven.CheckedIndices[i]].AantalInschrijvingen++;
-                }
-                else
-                {
-                    MessageBox.Show("Fout, de reeks zit al vol", "Fout");
-                }
+                int index = ITEvents.EventsInstantion.IndexOf(ITEvents.EventsInstantion[chklstbxInschrijven.CheckedIndices[i]]);
+                Users.UsersInstantion[lidnummer - 1].Events.Add(ITEvents.EventsInstantion[index]);
+                Databank.DatabankInstantie.AddUserAndEvent(Users.UsersInstantion[lidnummer - 1], ITEvents.EventsInstantion[chklstbxInschrijven.CheckedIndices[i]]);
+                ITEvents.EventsInstantion[chklstbxInschrijven.CheckedIndices[i]].AantalInschrijvingen++;
             }
             MessageBox.Show("Inschrijven voltooid", "Inschrijven");
             Close();

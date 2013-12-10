@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using ProjectGroep01.Data.People;
 using ProjectGroep01.Data.Evenementen;
+using ProjectGroep01.Data.Databank;
 
 namespace ProjectGroep01.View
 {
@@ -34,10 +35,12 @@ namespace ProjectGroep01.View
         {
             for (int i = 0; i < chklstbxUitschrijven.CheckedIndices.Count; i++)
             {
-                Users.UsersInstantion[lidnummer-1].Events.RemoveAt(chklstbxUitschrijven.CheckedIndices[i]);
+                int index = ITEvents.EventsInstantion.IndexOf(Users.UsersInstantion[lidnummer - 1].Events[chklstbxUitschrijven.CheckedIndices[i]]);
+                Users.UsersInstantion[lidnummer - 1].Events.RemoveAt(chklstbxUitschrijven.CheckedIndices[i]);
                 ITEvents.EventsInstantion[chklstbxUitschrijven.CheckedIndices[i]].AantalInschrijvingen--;
+                Databank.DatabankInstantie.DeleteUserAndEvent(Users.UsersInstantion[lidnummer - 1], ITEvents.EventsInstantion[index]);
             }
-            MessageBox.Show("Uitschrijven gelukt", "Uitschrijven");
+            MessageBox.Show("Uitschrijven voltooid", "Uitschrijven");
             Close();
         }
 
