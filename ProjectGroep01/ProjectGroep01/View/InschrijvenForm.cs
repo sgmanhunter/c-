@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using ProjectGroep01.Data.Evenementen;
 using ProjectGroep01.Data.People;
+using ProjectGroep01.Data.Databank;
 
 namespace ProjectGroep01.View
 {
@@ -35,6 +36,7 @@ namespace ProjectGroep01.View
             for (int i = 0; i < chklstbxInschrijven.CheckedIndices.Count; i++)
             {
                 Users.UsersInstantion[lidnummer-1].Events.Add(ITEvents.EventsInstantion[chklstbxInschrijven.CheckedIndices[i]]);
+                Databank.DatabankInstantie.AddUserAndEvent(Users.UsersInstantion[lidnummer - 1], ITEvents.EventsInstantion[chklstbxInschrijven.CheckedIndices[i]]);
                 ITEvents.EventsInstantion[chklstbxInschrijven.CheckedIndices[i]].AantalInschrijvingen++;
             }
             MessageBox.Show("Inschrijven gelukt", "Inschrijven");

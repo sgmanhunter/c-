@@ -88,6 +88,12 @@ namespace ProjectGroep01.Data.Databank
             eventsRow.maxparticipants = ite.AantalPlaatsen;
         }
 
+        private void FillUserAndEventRow(CSGroep01DataSet.signupRow signupRow, User user, ITEvent ite)
+        {
+            signupRow.userid = user.Lidnr;
+            signupRow.eventid = ite.EventNummer;
+        }
+
         public void AddUser(User user)
         {
             CSGroep01DataSet.userRow userRow = csGroep01DataSet.user.NewuserRow();
@@ -104,6 +110,15 @@ namespace ProjectGroep01.Data.Databank
             csGroep01DataSet.events.Rows.Add(eventsRow);
 
             eta.Update(csGroep01DataSet.events);
+        }
+
+        public void AddUserAndEvent(User user, ITEvent ite)
+        {
+            CSGroep01DataSet.signupRow signupRow = csGroep01DataSet.signup.NewsignupRow();
+            FillUserAndEventRow(signupRow, user, ite);
+            csGroep01DataSet.signup.Rows.Add(signupRow);
+
+            sta.Update(csGroep01DataSet.signup);
         }
     }
 }
