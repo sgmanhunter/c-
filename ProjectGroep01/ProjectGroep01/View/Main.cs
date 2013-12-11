@@ -145,5 +145,14 @@ namespace ProjectGroep01.View
                 of.Show();
             }
         }
+
+        private void btnRapport_Click(object sender, EventArgs e)
+        {
+            if (rdbtnRapportEventVrij.Checked)
+            {
+                RapportForm rf = new RapportForm();
+                rf.Show();
+            }
+        }
     }
 }

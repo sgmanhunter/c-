@@ -140,6 +140,7 @@
             this.btnRapport.TabIndex = 3;
             this.btnRapport.Text = "Rapport";
             this.btnRapport.UseVisualStyleBackColor = true;
+            this.btnRapport.Click += new System.EventHandler(this.btnRapport_Click);
             // 
             // rdbRapportStatistiek
             // 
