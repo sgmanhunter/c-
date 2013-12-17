@@ -150,7 +150,7 @@ namespace ProjectGroep01.View
         {
             if (rdbtnRapportEventVrij.Checked)
             {
-                RapportForm rf = new RapportForm();
+                ReportForm rf = new ReportForm();
                 rf.Show();
             }
         }
