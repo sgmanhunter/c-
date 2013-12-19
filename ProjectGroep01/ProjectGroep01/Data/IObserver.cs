@@ -6,11 +6,8 @@ using System.Threading.Tasks;
 
 namespace ProjectGroep01.Data
 {
-    public enum ShowList
+    interface IObserver
     {
-        freeEvents,
-        fullEvents,
-        passedEvents,
-        ownEvents
+        void Updating();
     }
 }

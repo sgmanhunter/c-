@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using ProjectGroep01.Data.People;
+using ProjectGroep01.Model.People;
 
 
 namespace ProjectGroep01.View
@@ -15,32 +15,32 @@ namespace ProjectGroep01.View
     public partial class Main : Form
     {
         private bool isLoggedIn;
-        private int lidnummer;
+        private int userid;
 
         public bool IsLoggedIn
         {
             get { return isLoggedIn; }
             set { isLoggedIn = value; }
         }
-        public int Lidnummer
+        public int Userid
         {
-            get { return lidnummer; }
-            set { lidnummer = value; }
+            get { return userid; }
+            set { userid = value; }
         }
+
         public Main()
         {
             InitializeComponent();
             IsLoggedIn = false;
-            Lidnummer = 0;
+            Userid = 0;
             GrpBoxPicker();
         }
 
-        private void btnRegistreren_Click(object sender, EventArgs e)
+        private void btnRegister_Click(object sender, EventArgs e)
         {
-            RegistreerFrame rf = new RegistreerFrame();
+            RegisterFrame rf = new RegisterFrame();
             rf.ShowDialog();
         }
-
         private void GrpBoxPicker()
         {
             if (isLoggedIn)
@@ -56,99 +56,93 @@ namespace ProjectGroep01.View
         }
         private void Reset()
         {
-            txtBoxGebruikersnaam.Text = "";
-            txtBoxWachtwoord.Text = "";
+            txtBoxUserName.Text = "";
+            txtBoxPassword.Text = "";
         }
-
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            string gebruikersnaam = txtBoxGebruikersnaam.Text.ToLower();
-            string wachtwoord = txtBoxWachtwoord.Text;
+            string username = txtBoxUserName.Text.ToLower();
+            string password = txtBoxPassword.Text;
             bool ok = false;
             int index=1;
-            for (int i = 0; i < Users.UsersInstantion.Count; i++)
+            for (int i = 0; i < Users.UserInstantion.Count; i++)
             {
-                if (Users.UsersInstantion[i].Gebruikersnaam == gebruikersnaam)
+                if (Users.UserInstantion[i].Username == username)
                 {
                     ok = true;
                     index = i;
-                    errorProvider.SetError(txtBoxGebruikersnaam, "");
+                    errorProvider.SetError(txtBoxUserName, "");
                     break;
                 }
                 else
-                    errorProvider.SetError(txtBoxGebruikersnaam, "Gebruikersnaam bestaat niet");
+                    errorProvider.SetError(txtBoxUserName, "Gebruikersnaam bestaat niet");
             }
-            if (ok && Users.UsersInstantion[index].Wachtwoord == wachtwoord)
+            if (ok && Users.UserInstantion[index].Password == password)
             {
                 IsLoggedIn = true;
-                errorProvider.SetError(txtBoxWachtwoord, "");
-                Lidnummer = Users.UsersInstantion[index].Lidnr;
+                errorProvider.SetError(txtBoxPassword, "");
+                Userid = Users.UserInstantion[index].Userid;
             }
             else
-                errorProvider.SetError(txtBoxWachtwoord, "Uw wachtwoord klopt niet");
+                errorProvider.SetError(txtBoxPassword, "Uw wachtwoord klopt niet");
             GrpBoxPicker();
             Reset();
         }
-
-        private void btnAfmelden_Click(object sender, EventArgs e)
+        private void btnLogout_Click(object sender, EventArgs e)
         {
             IsLoggedIn = false;
-            Lidnummer = 0;
+            Userid = 0;
             GrpBoxPicker();
         }
-
         private void btnGo_Click(object sender, EventArgs e)
         {
-            if (rdbtnAanmakenEvent.Checked)
+            if (rdbtnMakeEvent.Checked)
             {
-                AanmaakEventForm avf = new AanmaakEventForm();
+                MakeEventForm avf = new MakeEventForm();
                 avf.ShowDialog();
             }
-            else if (rdbtnInschrijvenEvent.Checked)
+            else if (rdbtnInscribeEvent.Checked)
             {
-                InschrijvenForm ief = new InschrijvenForm(Lidnummer);
+                InscribeEventForm ief = new InscribeEventForm(Userid);
                 ief.ShowDialog();
             }
             else
             {
-                UitschrijvenEventForm uef = new UitschrijvenEventForm(Lidnummer);
+                WriteOutEventForm uef = new WriteOutEventForm(Userid);
                 uef.ShowDialog();
             }
         }
-
-        private void btnOverzicht_Click(object sender, EventArgs e)
+        private void btnSummary_Click(object sender, EventArgs e)
         {
-            OverzichtForm of;
-            if (rdbtnOverzichtEventVrij.Checked)
+            SummaryForm of;
+            if (rdbtnSummaryEventFree.Checked)
             {
-                of = new OverzichtForm(Data.ToonLijst.vrijeEvents);
+                of = new SummaryForm(Data.ShowList.freeEvents);
                 of.Show();
             }
-            if (rdbtnOverzichtEventVolzet.Checked)
+            if (rdbtnSummaryEventFull.Checked)
             {
-                of = new OverzichtForm(Data.ToonLijst.volzetteEvents);
+                of = new SummaryForm(Data.ShowList.fullEvents);
                 of.Show();
             }
-            if (rdbtnOverzichtHistorie.Checked)
+            if (rdbtnSummaryHistory.Checked)
             {
-                of = new OverzichtForm(Data.ToonLijst.voorbijeEvents);
+                of = new SummaryForm(Data.ShowList.passedEvents);
                 of.Show();
             }
         }
-
-        private void btnEigenEvent_Click(object sender, EventArgs e)
+        private void btnOwnEvent_Click(object sender, EventArgs e)
         {
-            OverzichtForm of;
-            if (rdbtnOverzichtEigenEvent.Checked)
+            SummaryForm of;
+            if (rdbtnSummaryOwnEvents.Checked)
             {
-                of = new OverzichtForm(Data.ToonLijst.eigenEvents, Lidnummer);
+                of = new SummaryForm(Data.ShowList.ownEvents, Userid);
                 of.Show();
             }
         }
-
-        private void btnRapport_Click(object sender, EventArgs e)
+        private void btnReport_Click(object sender, EventArgs e)
         {
-            if (rdbtnRapportEventVrij.Checked)
+            if (rdbtnReportEventFree.Checked)
             {
                 ReportForm rf = new ReportForm();
                 rf.Show();

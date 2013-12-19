@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ProjectGroep01.View;
-using ProjectGroep01.Data.Databank;
+using ProjectGroep01.Data.Database;
 
 namespace ProjectGroep01
 {
@@ -16,9 +16,9 @@ namespace ProjectGroep01
         [STAThread]
         static void Main()
         {
-            Databank.DatabankInstantie.ReadUsers();
-            Databank.DatabankInstantie.ReadEvents();
-            Databank.DatabankInstantie.ReadUsersAndEvents();
+            Database.DatabankInstantion.ReadUsers();
+            Database.DatabankInstantion.ReadEvents();
+            Database.DatabankInstantion.ReadUsersAndEvents();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Main());
