@@ -30,15 +30,30 @@
         {
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.cSGroep01DataSet = new ProjectGroep01.Data.Databank.CSGroep01DataSet();
-            this.cSGroep01DataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.eventsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.cSGroep01DataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.cSGroep01DataSet = new ProjectGroep01.Data.Databank.CSGroep01DataSet();
+            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.eventsTableAdapter = new ProjectGroep01.Data.Databank.CSGroep01DataSetTableAdapters.eventsTableAdapter();
-            ((System.ComponentModel.ISupportInitialize)(this.cSGroep01DataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cSGroep01DataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.eventsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cSGroep01DataSetBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cSGroep01DataSet)).BeginInit();
             this.SuspendLayout();
+            // 
+            // eventsBindingSource
+            // 
+            this.eventsBindingSource.DataMember = "events";
+            this.eventsBindingSource.DataSource = this.cSGroep01DataSetBindingSource;
+            // 
+            // cSGroep01DataSetBindingSource
+            // 
+            this.cSGroep01DataSetBindingSource.DataSource = this.cSGroep01DataSet;
+            this.cSGroep01DataSetBindingSource.Position = 0;
+            // 
+            // cSGroep01DataSet
+            // 
+            this.cSGroep01DataSet.DataSetName = "CSGroep01DataSet";
+            this.cSGroep01DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // reportViewer1
             // 
@@ -50,21 +65,6 @@
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.Size = new System.Drawing.Size(816, 451);
             this.reportViewer1.TabIndex = 0;
-            // 
-            // cSGroep01DataSet
-            // 
-            this.cSGroep01DataSet.DataSetName = "CSGroep01DataSet";
-            this.cSGroep01DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // cSGroep01DataSetBindingSource
-            // 
-            this.cSGroep01DataSetBindingSource.DataSource = this.cSGroep01DataSet;
-            this.cSGroep01DataSetBindingSource.Position = 0;
-            // 
-            // eventsBindingSource
-            // 
-            this.eventsBindingSource.DataMember = "events";
-            this.eventsBindingSource.DataSource = this.cSGroep01DataSetBindingSource;
             // 
             // eventsTableAdapter
             // 
@@ -79,9 +79,9 @@
             this.Name = "ReportForm";
             this.Text = "Rapporten";
             this.Load += new System.EventHandler(this.ReportForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.cSGroep01DataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cSGroep01DataSetBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.eventsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cSGroep01DataSetBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cSGroep01DataSet)).EndInit();
             this.ResumeLayout(false);
 
         }

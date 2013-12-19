@@ -30,9 +30,9 @@ namespace ProjectGroep01.Data.Databank {
         
         private userDataTable tableuser;
         
-        private global::System.Data.DataRelation relationevents_signup;
+        private global::System.Data.DataRelation relationFK_events_signup;
         
-        private global::System.Data.DataRelation relationuser_signup;
+        private global::System.Data.DataRelation relationFK_user_signup;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -246,8 +246,8 @@ namespace ProjectGroep01.Data.Databank {
                     this.tableuser.InitVars();
                 }
             }
-            this.relationevents_signup = this.Relations["events_signup"];
-            this.relationuser_signup = this.Relations["user_signup"];
+            this.relationFK_events_signup = this.Relations["FK_events_signup"];
+            this.relationFK_user_signup = this.Relations["FK_user_signup"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -264,14 +264,29 @@ namespace ProjectGroep01.Data.Databank {
             base.Tables.Add(this.tablesignup);
             this.tableuser = new userDataTable();
             base.Tables.Add(this.tableuser);
-            this.relationevents_signup = new global::System.Data.DataRelation("events_signup", new global::System.Data.DataColumn[] {
+            global::System.Data.ForeignKeyConstraint fkc;
+            fkc = new global::System.Data.ForeignKeyConstraint("FK_events_signup", new global::System.Data.DataColumn[] {
+                        this.tableevents.eventidColumn}, new global::System.Data.DataColumn[] {
+                        this.tablesignup.eventidColumn});
+            this.tablesignup.Constraints.Add(fkc);
+            fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
+            fkc.DeleteRule = global::System.Data.Rule.Cascade;
+            fkc.UpdateRule = global::System.Data.Rule.Cascade;
+            fkc = new global::System.Data.ForeignKeyConstraint("FK_user_signup", new global::System.Data.DataColumn[] {
+                        this.tableuser.useridColumn}, new global::System.Data.DataColumn[] {
+                        this.tablesignup.useridColumn});
+            this.tablesignup.Constraints.Add(fkc);
+            fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
+            fkc.DeleteRule = global::System.Data.Rule.Cascade;
+            fkc.UpdateRule = global::System.Data.Rule.Cascade;
+            this.relationFK_events_signup = new global::System.Data.DataRelation("FK_events_signup", new global::System.Data.DataColumn[] {
                         this.tableevents.eventidColumn}, new global::System.Data.DataColumn[] {
                         this.tablesignup.eventidColumn}, false);
-            this.Relations.Add(this.relationevents_signup);
-            this.relationuser_signup = new global::System.Data.DataRelation("user_signup", new global::System.Data.DataColumn[] {
+            this.Relations.Add(this.relationFK_events_signup);
+            this.relationFK_user_signup = new global::System.Data.DataRelation("FK_user_signup", new global::System.Data.DataColumn[] {
                         this.tableuser.useridColumn}, new global::System.Data.DataColumn[] {
                         this.tablesignup.useridColumn}, false);
-            this.Relations.Add(this.relationuser_signup);
+            this.Relations.Add(this.relationFK_user_signup);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -786,16 +801,16 @@ namespace ProjectGroep01.Data.Databank {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public signupRow AddsignupRow(userRow parentuserRowByuser_signup, eventsRow parenteventsRowByevents_signup) {
+            public signupRow AddsignupRow(userRow parentuserRowByFK_user_signup, eventsRow parenteventsRowByFK_events_signup) {
                 signupRow rowsignupRow = ((signupRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         null};
-                if ((parentuserRowByuser_signup != null)) {
-                    columnValuesArray[0] = parentuserRowByuser_signup[0];
+                if ((parentuserRowByFK_user_signup != null)) {
+                    columnValuesArray[0] = parentuserRowByFK_user_signup[0];
                 }
-                if ((parenteventsRowByevents_signup != null)) {
-                    columnValuesArray[1] = parenteventsRowByevents_signup[0];
+                if ((parenteventsRowByFK_events_signup != null)) {
+                    columnValuesArray[1] = parenteventsRowByFK_events_signup[0];
                 }
                 rowsignupRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowsignupRow);
@@ -1440,11 +1455,11 @@ namespace ProjectGroep01.Data.Databank {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public signupRow[] GetsignupRows() {
-                if ((this.Table.ChildRelations["events_signup"] == null)) {
+                if ((this.Table.ChildRelations["FK_events_signup"] == null)) {
                     return new signupRow[0];
                 }
                 else {
-                    return ((signupRow[])(base.GetChildRows(this.Table.ChildRelations["events_signup"])));
+                    return ((signupRow[])(base.GetChildRows(this.Table.ChildRelations["FK_events_signup"])));
                 }
             }
         }
@@ -1489,10 +1504,10 @@ namespace ProjectGroep01.Data.Databank {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public eventsRow eventsRow {
                 get {
-                    return ((eventsRow)(this.GetParentRow(this.Table.ParentRelations["events_signup"])));
+                    return ((eventsRow)(this.GetParentRow(this.Table.ParentRelations["FK_events_signup"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["events_signup"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_events_signup"]);
                 }
             }
             
@@ -1500,10 +1515,10 @@ namespace ProjectGroep01.Data.Databank {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public userRow userRow {
                 get {
-                    return ((userRow)(this.GetParentRow(this.Table.ParentRelations["user_signup"])));
+                    return ((userRow)(this.GetParentRow(this.Table.ParentRelations["FK_user_signup"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["user_signup"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_user_signup"]);
                 }
             }
         }
@@ -1664,11 +1679,11 @@ namespace ProjectGroep01.Data.Databank {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public signupRow[] GetsignupRows() {
-                if ((this.Table.ChildRelations["user_signup"] == null)) {
+                if ((this.Table.ChildRelations["FK_user_signup"] == null)) {
                     return new signupRow[0];
                 }
                 else {
-                    return ((signupRow[])(base.GetChildRows(this.Table.ChildRelations["user_signup"])));
+                    return ((signupRow[])(base.GetChildRows(this.Table.ChildRelations["FK_user_signup"])));
                 }
             }
         }
@@ -2378,7 +2393,7 @@ SELECT eventid, eventname, eventdate, location, housenumber, maxparticipants FRO
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[3];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT userid, eventid FROM dbo.signup";
@@ -2390,6 +2405,11 @@ SELECT eventid, eventname, eventdate, location, housenumber, maxparticipants FRO
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@userid", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "userid", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@eventid", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "eventid", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[2].Connection = this.Connection;
+            this._commandCollection[2].CommandText = "SELECT userid, eventid FROM dbo.signup WHERE userid = @userid";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@userid", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "userid", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2411,6 +2431,32 @@ SELECT eventid, eventname, eventdate, location, housenumber, maxparticipants FRO
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual CSGroep01DataSet.signupDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            CSGroep01DataSet.signupDataTable dataTable = new CSGroep01DataSet.signupDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByUserId(CSGroep01DataSet.signupDataTable dataTable, int userid) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(userid));
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual CSGroep01DataSet.signupDataTable GetDataByUserId(int userid) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(userid));
             CSGroep01DataSet.signupDataTable dataTable = new CSGroep01DataSet.signupDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
