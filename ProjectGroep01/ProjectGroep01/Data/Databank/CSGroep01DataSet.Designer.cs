@@ -30,9 +30,9 @@ namespace ProjectGroep01.Data.Databank {
         
         private userDataTable tableuser;
         
-        private global::System.Data.DataRelation relationFK_events_signup;
+        private global::System.Data.DataRelation relationFK_signup_events;
         
-        private global::System.Data.DataRelation relationFK_user_signup;
+        private global::System.Data.DataRelation relationFK_signup_user;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -246,8 +246,8 @@ namespace ProjectGroep01.Data.Databank {
                     this.tableuser.InitVars();
                 }
             }
-            this.relationFK_events_signup = this.Relations["FK_events_signup"];
-            this.relationFK_user_signup = this.Relations["FK_user_signup"];
+            this.relationFK_signup_events = this.Relations["FK_signup_events"];
+            this.relationFK_signup_user = this.Relations["FK_signup_user"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -264,29 +264,14 @@ namespace ProjectGroep01.Data.Databank {
             base.Tables.Add(this.tablesignup);
             this.tableuser = new userDataTable();
             base.Tables.Add(this.tableuser);
-            global::System.Data.ForeignKeyConstraint fkc;
-            fkc = new global::System.Data.ForeignKeyConstraint("FK_events_signup", new global::System.Data.DataColumn[] {
-                        this.tableevents.eventidColumn}, new global::System.Data.DataColumn[] {
-                        this.tablesignup.eventidColumn});
-            this.tablesignup.Constraints.Add(fkc);
-            fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
-            fkc.DeleteRule = global::System.Data.Rule.Cascade;
-            fkc.UpdateRule = global::System.Data.Rule.Cascade;
-            fkc = new global::System.Data.ForeignKeyConstraint("FK_user_signup", new global::System.Data.DataColumn[] {
-                        this.tableuser.useridColumn}, new global::System.Data.DataColumn[] {
-                        this.tablesignup.useridColumn});
-            this.tablesignup.Constraints.Add(fkc);
-            fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
-            fkc.DeleteRule = global::System.Data.Rule.Cascade;
-            fkc.UpdateRule = global::System.Data.Rule.Cascade;
-            this.relationFK_events_signup = new global::System.Data.DataRelation("FK_events_signup", new global::System.Data.DataColumn[] {
+            this.relationFK_signup_events = new global::System.Data.DataRelation("FK_signup_events", new global::System.Data.DataColumn[] {
                         this.tableevents.eventidColumn}, new global::System.Data.DataColumn[] {
                         this.tablesignup.eventidColumn}, false);
-            this.Relations.Add(this.relationFK_events_signup);
-            this.relationFK_user_signup = new global::System.Data.DataRelation("FK_user_signup", new global::System.Data.DataColumn[] {
+            this.Relations.Add(this.relationFK_signup_events);
+            this.relationFK_signup_user = new global::System.Data.DataRelation("FK_signup_user", new global::System.Data.DataColumn[] {
                         this.tableuser.useridColumn}, new global::System.Data.DataColumn[] {
                         this.tablesignup.useridColumn}, false);
-            this.Relations.Add(this.relationFK_user_signup);
+            this.Relations.Add(this.relationFK_signup_user);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -390,6 +375,8 @@ namespace ProjectGroep01.Data.Databank {
             
             private global::System.Data.DataColumn columnmaxparticipants;
             
+            private global::System.Data.DataColumn columnstreetname;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public eventsDataTable() {
@@ -473,6 +460,14 @@ namespace ProjectGroep01.Data.Databank {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn streetnameColumn {
+                get {
+                    return this.columnstreetname;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -508,7 +503,7 @@ namespace ProjectGroep01.Data.Databank {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public eventsRow AddeventsRow(int eventid, string eventname, System.DateTime eventdate, string location, int housenumber, int maxparticipants) {
+            public eventsRow AddeventsRow(int eventid, string eventname, System.DateTime eventdate, string location, int housenumber, int maxparticipants, string streetname) {
                 eventsRow roweventsRow = ((eventsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         eventid,
@@ -516,7 +511,8 @@ namespace ProjectGroep01.Data.Databank {
                         eventdate,
                         location,
                         housenumber,
-                        maxparticipants};
+                        maxparticipants,
+                        streetname};
                 roweventsRow.ItemArray = columnValuesArray;
                 this.Rows.Add(roweventsRow);
                 return roweventsRow;
@@ -552,6 +548,7 @@ namespace ProjectGroep01.Data.Databank {
                 this.columnlocation = base.Columns["location"];
                 this.columnhousenumber = base.Columns["housenumber"];
                 this.columnmaxparticipants = base.Columns["maxparticipants"];
+                this.columnstreetname = base.Columns["streetname"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -569,6 +566,8 @@ namespace ProjectGroep01.Data.Databank {
                 base.Columns.Add(this.columnhousenumber);
                 this.columnmaxparticipants = new global::System.Data.DataColumn("maxparticipants", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnmaxparticipants);
+                this.columnstreetname = new global::System.Data.DataColumn("streetname", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnstreetname);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columneventid}, true));
                 this.columneventid.AllowDBNull = false;
@@ -578,6 +577,7 @@ namespace ProjectGroep01.Data.Databank {
                 this.columnlocation.MaxLength = 50;
                 this.columnhousenumber.AllowDBNull = false;
                 this.columnmaxparticipants.AllowDBNull = false;
+                this.columnstreetname.MaxLength = 50;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -801,16 +801,16 @@ namespace ProjectGroep01.Data.Databank {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public signupRow AddsignupRow(userRow parentuserRowByFK_user_signup, eventsRow parenteventsRowByFK_events_signup) {
+            public signupRow AddsignupRow(userRow parentuserRowByFK_signup_user, eventsRow parenteventsRowByFK_signup_events) {
                 signupRow rowsignupRow = ((signupRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         null};
-                if ((parentuserRowByFK_user_signup != null)) {
-                    columnValuesArray[0] = parentuserRowByFK_user_signup[0];
+                if ((parentuserRowByFK_signup_user != null)) {
+                    columnValuesArray[0] = parentuserRowByFK_signup_user[0];
                 }
-                if ((parenteventsRowByFK_events_signup != null)) {
-                    columnValuesArray[1] = parenteventsRowByFK_events_signup[0];
+                if ((parenteventsRowByFK_signup_events != null)) {
+                    columnValuesArray[1] = parenteventsRowByFK_signup_events[0];
                 }
                 rowsignupRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowsignupRow);
@@ -845,8 +845,6 @@ namespace ProjectGroep01.Data.Databank {
                 base.Columns.Add(this.columnuserid);
                 this.columneventid = new global::System.Data.DataColumn("eventid", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columneventid);
-                this.columnuserid.AllowDBNull = false;
-                this.columneventid.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1430,6 +1428,22 @@ namespace ProjectGroep01.Data.Databank {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string streetname {
+                get {
+                    try {
+                        return ((string)(this[this.tableevents.streetnameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'streetname\' in table \'events\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableevents.streetnameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IseventdateNull() {
                 return this.IsNull(this.tableevents.eventdateColumn);
             }
@@ -1454,12 +1468,24 @@ namespace ProjectGroep01.Data.Databank {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsstreetnameNull() {
+                return this.IsNull(this.tableevents.streetnameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetstreetnameNull() {
+                this[this.tableevents.streetnameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public signupRow[] GetsignupRows() {
-                if ((this.Table.ChildRelations["FK_events_signup"] == null)) {
+                if ((this.Table.ChildRelations["FK_signup_events"] == null)) {
                     return new signupRow[0];
                 }
                 else {
-                    return ((signupRow[])(base.GetChildRows(this.Table.ChildRelations["FK_events_signup"])));
+                    return ((signupRow[])(base.GetChildRows(this.Table.ChildRelations["FK_signup_events"])));
                 }
             }
         }
@@ -1482,7 +1508,12 @@ namespace ProjectGroep01.Data.Databank {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public int userid {
                 get {
-                    return ((int)(this[this.tablesignup.useridColumn]));
+                    try {
+                        return ((int)(this[this.tablesignup.useridColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'userid\' in table \'signup\' is DBNull.", e);
+                    }
                 }
                 set {
                     this[this.tablesignup.useridColumn] = value;
@@ -1493,7 +1524,12 @@ namespace ProjectGroep01.Data.Databank {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public int eventid {
                 get {
-                    return ((int)(this[this.tablesignup.eventidColumn]));
+                    try {
+                        return ((int)(this[this.tablesignup.eventidColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'eventid\' in table \'signup\' is DBNull.", e);
+                    }
                 }
                 set {
                     this[this.tablesignup.eventidColumn] = value;
@@ -1504,10 +1540,10 @@ namespace ProjectGroep01.Data.Databank {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public eventsRow eventsRow {
                 get {
-                    return ((eventsRow)(this.GetParentRow(this.Table.ParentRelations["FK_events_signup"])));
+                    return ((eventsRow)(this.GetParentRow(this.Table.ParentRelations["FK_signup_events"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_events_signup"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_signup_events"]);
                 }
             }
             
@@ -1515,11 +1551,35 @@ namespace ProjectGroep01.Data.Databank {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public userRow userRow {
                 get {
-                    return ((userRow)(this.GetParentRow(this.Table.ParentRelations["FK_user_signup"])));
+                    return ((userRow)(this.GetParentRow(this.Table.ParentRelations["FK_signup_user"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_user_signup"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_signup_user"]);
                 }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsuseridNull() {
+                return this.IsNull(this.tablesignup.useridColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetuseridNull() {
+                this[this.tablesignup.useridColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IseventidNull() {
+                return this.IsNull(this.tablesignup.eventidColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SeteventidNull() {
+                this[this.tablesignup.eventidColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -1679,11 +1739,11 @@ namespace ProjectGroep01.Data.Databank {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public signupRow[] GetsignupRows() {
-                if ((this.Table.ChildRelations["FK_user_signup"] == null)) {
+                if ((this.Table.ChildRelations["FK_signup_user"] == null)) {
                     return new signupRow[0];
                 }
                 else {
-                    return ((signupRow[])(base.GetChildRows(this.Table.ChildRelations["FK_user_signup"])));
+                    return ((signupRow[])(base.GetChildRows(this.Table.ChildRelations["FK_signup_user"])));
                 }
             }
         }
@@ -1921,10 +1981,11 @@ namespace ProjectGroep01.Data.Databank.CSGroep01DataSetTableAdapters {
             tableMapping.ColumnMappings.Add("location", "location");
             tableMapping.ColumnMappings.Add("housenumber", "housenumber");
             tableMapping.ColumnMappings.Add("maxparticipants", "maxparticipants");
+            tableMapping.ColumnMappings.Add("streetname", "streetname");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[events] WHERE (([eventid] = @Original_eventid) AND ([eventname] = @Original_eventname) AND ((@IsNull_eventdate = 1 AND [eventdate] IS NULL) OR ([eventdate] = @Original_eventdate)) AND ((@IsNull_location = 1 AND [location] IS NULL) OR ([location] = @Original_location)) AND ([housenumber] = @Original_housenumber) AND ([maxparticipants] = @Original_maxparticipants))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[events] WHERE (([eventid] = @Original_eventid) AND ([eventname] = @Original_eventname) AND ((@IsNull_eventdate = 1 AND [eventdate] IS NULL) OR ([eventdate] = @Original_eventdate)) AND ((@IsNull_location = 1 AND [location] IS NULL) OR ([location] = @Original_location)) AND ([housenumber] = @Original_housenumber) AND ([maxparticipants] = @Original_maxparticipants) AND ((@IsNull_streetname = 1 AND [streetname] IS NULL) OR ([streetname] = @Original_streetname)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_eventid", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "eventid", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_eventname", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "eventname", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -1934,10 +1995,12 @@ namespace ProjectGroep01.Data.Databank.CSGroep01DataSetTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_location", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "location", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_housenumber", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "housenumber", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_maxparticipants", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "maxparticipants", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_streetname", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "streetname", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_streetname", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "streetname", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[events] ([eventid], [eventname], [eventdate], [location], [housenumber], [maxparticipants]) VALUES (@eventid, @eventname, @eventdate, @location, @housenumber, @maxparticipants);
-SELECT eventid, eventname, eventdate, location, housenumber, maxparticipants FROM events WHERE (eventid = @eventid)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[events] ([eventid], [eventname], [eventdate], [location], [housenumber], [maxparticipants], [streetname]) VALUES (@eventid, @eventname, @eventdate, @location, @housenumber, @maxparticipants, @streetname);
+SELECT eventid, eventname, eventdate, location, housenumber, maxparticipants, streetname FROM events WHERE (eventid = @eventid)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@eventid", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "eventid", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@eventname", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "eventname", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -1945,10 +2008,11 @@ SELECT eventid, eventname, eventdate, location, housenumber, maxparticipants FRO
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@location", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "location", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@housenumber", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "housenumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@maxparticipants", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "maxparticipants", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@streetname", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "streetname", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[events] SET [eventid] = @eventid, [eventname] = @eventname, [eventdate] = @eventdate, [location] = @location, [housenumber] = @housenumber, [maxparticipants] = @maxparticipants WHERE (([eventid] = @Original_eventid) AND ([eventname] = @Original_eventname) AND ((@IsNull_eventdate = 1 AND [eventdate] IS NULL) OR ([eventdate] = @Original_eventdate)) AND ((@IsNull_location = 1 AND [location] IS NULL) OR ([location] = @Original_location)) AND ([housenumber] = @Original_housenumber) AND ([maxparticipants] = @Original_maxparticipants));
-SELECT eventid, eventname, eventdate, location, housenumber, maxparticipants FROM events WHERE (eventid = @eventid)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[events] SET [eventid] = @eventid, [eventname] = @eventname, [eventdate] = @eventdate, [location] = @location, [housenumber] = @housenumber, [maxparticipants] = @maxparticipants, [streetname] = @streetname WHERE (([eventid] = @Original_eventid) AND ([eventname] = @Original_eventname) AND ((@IsNull_eventdate = 1 AND [eventdate] IS NULL) OR ([eventdate] = @Original_eventdate)) AND ((@IsNull_location = 1 AND [location] IS NULL) OR ([location] = @Original_location)) AND ([housenumber] = @Original_housenumber) AND ([maxparticipants] = @Original_maxparticipants) AND ((@IsNull_streetname = 1 AND [streetname] IS NULL) OR ([streetname] = @Original_streetname)));
+SELECT eventid, eventname, eventdate, location, housenumber, maxparticipants, streetname FROM events WHERE (eventid = @eventid)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@eventid", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "eventid", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@eventname", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "eventname", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -1956,6 +2020,7 @@ SELECT eventid, eventname, eventdate, location, housenumber, maxparticipants FRO
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@location", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "location", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@housenumber", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "housenumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@maxparticipants", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "maxparticipants", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@streetname", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "streetname", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_eventid", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "eventid", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_eventname", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "eventname", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_eventdate", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "eventdate", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -1964,6 +2029,8 @@ SELECT eventid, eventname, eventdate, location, housenumber, maxparticipants FRO
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_location", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "location", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_housenumber", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "housenumber", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_maxparticipants", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "maxparticipants", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_streetname", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "streetname", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_streetname", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "streetname", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1976,18 +2043,12 @@ SELECT eventid, eventname, eventdate, location, housenumber, maxparticipants FRO
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT eventid, eventname, eventdate, location, housenumber, maxparticipants FROM" +
-                " events";
+            this._commandCollection[0].CommandText = "SELECT eventid, eventname, eventdate, location, housenumber, maxparticipants, str" +
+                "eetname FROM dbo.events";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT eventid, eventname, eventdate, location, housenumber, maxparticipants FROM" +
-                " events WHERE (eventid = @eventid)";
-            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@eventid", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "eventid", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2009,32 +2070,6 @@ SELECT eventid, eventname, eventdate, location, housenumber, maxparticipants FRO
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual CSGroep01DataSet.eventsDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            CSGroep01DataSet.eventsDataTable dataTable = new CSGroep01DataSet.eventsDataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillByEventId(CSGroep01DataSet.eventsDataTable dataTable, int eventid) {
-            this.Adapter.SelectCommand = this.CommandCollection[1];
-            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(eventid));
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual CSGroep01DataSet.eventsDataTable GetDataBy(int eventid) {
-            this.Adapter.SelectCommand = this.CommandCollection[1];
-            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(eventid));
             CSGroep01DataSet.eventsDataTable dataTable = new CSGroep01DataSet.eventsDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -2073,7 +2108,7 @@ SELECT eventid, eventname, eventdate, location, housenumber, maxparticipants FRO
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_eventid, string Original_eventname, global::System.Nullable<global::System.DateTime> Original_eventdate, string Original_location, int Original_housenumber, int Original_maxparticipants) {
+        public virtual int Delete(int Original_eventid, string Original_eventname, global::System.Nullable<global::System.DateTime> Original_eventdate, string Original_location, int Original_housenumber, int Original_maxparticipants, string Original_streetname) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_eventid));
             if ((Original_eventname == null)) {
                 throw new global::System.ArgumentNullException("Original_eventname");
@@ -2099,6 +2134,14 @@ SELECT eventid, eventname, eventdate, location, housenumber, maxparticipants FRO
             }
             this.Adapter.DeleteCommand.Parameters[6].Value = ((int)(Original_housenumber));
             this.Adapter.DeleteCommand.Parameters[7].Value = ((int)(Original_maxparticipants));
+            if ((Original_streetname == null)) {
+                this.Adapter.DeleteCommand.Parameters[8].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[9].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[8].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[9].Value = ((string)(Original_streetname));
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -2119,7 +2162,7 @@ SELECT eventid, eventname, eventdate, location, housenumber, maxparticipants FRO
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(int eventid, string eventname, global::System.Nullable<global::System.DateTime> eventdate, string location, int housenumber, int maxparticipants) {
+        public virtual int Insert(int eventid, string eventname, global::System.Nullable<global::System.DateTime> eventdate, string location, int housenumber, int maxparticipants, string streetname) {
             this.Adapter.InsertCommand.Parameters[0].Value = ((int)(eventid));
             if ((eventname == null)) {
                 throw new global::System.ArgumentNullException("eventname");
@@ -2141,6 +2184,12 @@ SELECT eventid, eventname, eventdate, location, housenumber, maxparticipants FRO
             }
             this.Adapter.InsertCommand.Parameters[4].Value = ((int)(housenumber));
             this.Adapter.InsertCommand.Parameters[5].Value = ((int)(maxparticipants));
+            if ((streetname == null)) {
+                this.Adapter.InsertCommand.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[6].Value = ((string)(streetname));
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -2161,7 +2210,7 @@ SELECT eventid, eventname, eventdate, location, housenumber, maxparticipants FRO
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int eventid, string eventname, global::System.Nullable<global::System.DateTime> eventdate, string location, int housenumber, int maxparticipants, int Original_eventid, string Original_eventname, global::System.Nullable<global::System.DateTime> Original_eventdate, string Original_location, int Original_housenumber, int Original_maxparticipants) {
+        public virtual int Update(int eventid, string eventname, global::System.Nullable<global::System.DateTime> eventdate, string location, int housenumber, int maxparticipants, string streetname, int Original_eventid, string Original_eventname, global::System.Nullable<global::System.DateTime> Original_eventdate, string Original_location, int Original_housenumber, int Original_maxparticipants, string Original_streetname) {
             this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(eventid));
             if ((eventname == null)) {
                 throw new global::System.ArgumentNullException("eventname");
@@ -2183,31 +2232,45 @@ SELECT eventid, eventname, eventdate, location, housenumber, maxparticipants FRO
             }
             this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(housenumber));
             this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(maxparticipants));
-            this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(Original_eventid));
+            if ((streetname == null)) {
+                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(streetname));
+            }
+            this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(Original_eventid));
             if ((Original_eventname == null)) {
                 throw new global::System.ArgumentNullException("Original_eventname");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Original_eventname));
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(Original_eventname));
             }
             if ((Original_eventdate.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((System.DateTime)(Original_eventdate.Value));
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((System.DateTime)(Original_eventdate.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
             }
             if ((Original_location == null)) {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(Original_location));
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(Original_location));
             }
-            this.Adapter.UpdateCommand.Parameters[12].Value = ((int)(Original_housenumber));
-            this.Adapter.UpdateCommand.Parameters[13].Value = ((int)(Original_maxparticipants));
+            this.Adapter.UpdateCommand.Parameters[13].Value = ((int)(Original_housenumber));
+            this.Adapter.UpdateCommand.Parameters[14].Value = ((int)(Original_maxparticipants));
+            if ((Original_streetname == null)) {
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[16].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((string)(Original_streetname));
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -2228,8 +2291,8 @@ SELECT eventid, eventname, eventdate, location, housenumber, maxparticipants FRO
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string eventname, global::System.Nullable<global::System.DateTime> eventdate, string location, int housenumber, int maxparticipants, int Original_eventid, string Original_eventname, global::System.Nullable<global::System.DateTime> Original_eventdate, string Original_location, int Original_housenumber, int Original_maxparticipants) {
-            return this.Update(Original_eventid, eventname, eventdate, location, housenumber, maxparticipants, Original_eventid, Original_eventname, Original_eventdate, Original_location, Original_housenumber, Original_maxparticipants);
+        public virtual int Update(string eventname, global::System.Nullable<global::System.DateTime> eventdate, string location, int housenumber, int maxparticipants, string streetname, int Original_eventid, string Original_eventname, global::System.Nullable<global::System.DateTime> Original_eventdate, string Original_location, int Original_housenumber, int Original_maxparticipants, string Original_streetname) {
+            return this.Update(Original_eventid, eventname, eventdate, location, housenumber, maxparticipants, streetname, Original_eventid, Original_eventname, Original_eventdate, Original_location, Original_housenumber, Original_maxparticipants, Original_streetname);
         }
     }
     
@@ -2357,30 +2420,12 @@ SELECT eventid, eventname, eventdate, location, housenumber, maxparticipants FRO
             tableMapping.ColumnMappings.Add("userid", "userid");
             tableMapping.ColumnMappings.Add("eventid", "eventid");
             this._adapter.TableMappings.Add(tableMapping);
-            this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[signup] WHERE (([userid] = @Original_userid) AND ([eventid] = " +
-                "@Original_eventid))";
-            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_userid", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "userid", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_eventid", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "eventid", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[signup] ([userid], [eventid]) VALUES (@userid, @eventid);\r\nSEL" +
-                "ECT userid, eventid FROM signup WHERE (userid = @userid)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[signup] ([userid], [eventid]) VALUES (@userid, @eventid)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@userid", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "userid", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@eventid", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "eventid", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[signup] SET [userid] = @userid, [eventid] = @eventid WHERE (([useri" +
-                "d] = @Original_userid) AND ([eventid] = @Original_eventid));\r\nSELECT userid, eve" +
-                "ntid FROM signup WHERE (userid = @userid)";
-            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@userid", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "userid", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@eventid", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "eventid", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_userid", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "userid", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_eventid", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "eventid", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2393,23 +2438,17 @@ SELECT eventid, eventname, eventdate, location, housenumber, maxparticipants FRO
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[3];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT userid, eventid FROM dbo.signup";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "DELETE FROM [dbo].[signup] WHERE (([userid] = @userid) AND ([eventid] = @eventid)" +
-                ")";
+            this._commandCollection[1].CommandText = "DELETE FROM dbo.signup WHERE userid = @userid AND eventid = @eventid";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@userid", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "userid", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@eventid", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "eventid", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = "SELECT userid, eventid FROM dbo.signup WHERE userid = @userid";
-            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@userid", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "userid", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2431,32 +2470,6 @@ SELECT eventid, eventname, eventdate, location, housenumber, maxparticipants FRO
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual CSGroep01DataSet.signupDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            CSGroep01DataSet.signupDataTable dataTable = new CSGroep01DataSet.signupDataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillByUserId(CSGroep01DataSet.signupDataTable dataTable, int userid) {
-            this.Adapter.SelectCommand = this.CommandCollection[2];
-            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(userid));
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual CSGroep01DataSet.signupDataTable GetDataByUserId(int userid) {
-            this.Adapter.SelectCommand = this.CommandCollection[2];
-            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(userid));
             CSGroep01DataSet.signupDataTable dataTable = new CSGroep01DataSet.signupDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -2494,33 +2507,20 @@ SELECT eventid, eventname, eventdate, location, housenumber, maxparticipants FRO
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_userid, int Original_eventid) {
-            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_userid));
-            this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(Original_eventid));
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
-            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.DeleteCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.DeleteCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(int userid, int eventid) {
-            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(userid));
-            this.Adapter.InsertCommand.Parameters[1].Value = ((int)(eventid));
+        public virtual int Insert(global::System.Nullable<int> userid, global::System.Nullable<int> eventid) {
+            if ((userid.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[0].Value = ((int)(userid.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            if ((eventid.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[1].Value = ((int)(eventid.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -2540,36 +2540,21 @@ SELECT eventid, eventname, eventdate, location, housenumber, maxparticipants FRO
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int userid, int eventid, int Original_userid, int Original_eventid) {
-            this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(userid));
-            this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(eventid));
-            this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(Original_userid));
-            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(Original_eventid));
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
-            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.UpdateCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.UpdateCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, false)]
-        public virtual int DeleteByUserIdAndEventId(int userid, int eventid) {
+        public virtual int DeleteByUserIdAndEventId(global::System.Nullable<int> userid, global::System.Nullable<int> eventid) {
             global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[1];
-            command.Parameters[0].Value = ((int)(userid));
-            command.Parameters[1].Value = ((int)(eventid));
+            if ((userid.HasValue == true)) {
+                command.Parameters[0].Value = ((int)(userid.Value));
+            }
+            else {
+                command.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            if ((eventid.HasValue == true)) {
+                command.Parameters[1].Value = ((int)(eventid.Value));
+            }
+            else {
+                command.Parameters[1].Value = global::System.DBNull.Value;
+            }
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -2782,18 +2767,12 @@ SELECT userid, username, firstname, lastname, birthday, male, email, password FR
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT userid, username, firstname, lastname, birthday, male, email, password FRO" +
                 "M dbo.[user]";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT userid, username, firstname, lastname, birthday, male, email, password FRO" +
-                "M dbo.[user] WHERE userid = @userid";
-            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@userid", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "userid", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2818,20 +2797,6 @@ SELECT userid, username, firstname, lastname, birthday, male, email, password FR
             CSGroep01DataSet.userDataTable dataTable = new CSGroep01DataSet.userDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillByUserId(CSGroep01DataSet.userDataTable dataTable, int userid) {
-            this.Adapter.SelectCommand = this.CommandCollection[1];
-            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(userid));
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

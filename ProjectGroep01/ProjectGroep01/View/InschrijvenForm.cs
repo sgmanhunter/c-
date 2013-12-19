@@ -30,19 +30,22 @@ namespace ProjectGroep01.View
             for (int i = 0; i < ITEvents.EventsInstantion.Count; i++)
                 if (ITEvents.EventsInstantion[i].AantalInschrijvingen < ITEvents.EventsInstantion[i].AantalPlaatsen
                     && ITEvents.EventsInstantion[i].Datum >= DateTime.Today && !Users.UsersInstantion[lidnummer].Events.Contains(ITEvents.EventsInstantion[i]))
-                chklstbxInschrijven.Items.Add(ITEvents.EventsInstantion[i].EventNaam);
+                    chklstbxInschrijven.Items.Add(ITEvents.EventsInstantion[i].EventNaam);
         }
 
         private void btnInschrijven_Click(object sender, EventArgs e)
         {
-            for (int i = 0; i < chklstbxInschrijven.CheckedIndices.Count; i++)
+            int index=0;
+            for (int i = 0; i < chklstbxInschrijven.CheckedItems.Count; i++)
             {
-                int index = ITEvents.EventsInstantion.IndexOf(ITEvents.EventsInstantion[chklstbxInschrijven.CheckedIndices[i]]);
+                for (int j = 0; j < ITEvents.EventsInstantion.Count; j++)
+                    if (chklstbxInschrijven.CheckedItems[i].ToString() == ITEvents.EventsInstantion[j].EventNaam)
+                        index = j;
                 Users.UsersInstantion[lidnummer - 1].Events.Add(ITEvents.EventsInstantion[index]);
-                Databank.DatabankInstantie.AddUserAndEvent(Users.UsersInstantion[lidnummer - 1], ITEvents.EventsInstantion[chklstbxInschrijven.CheckedIndices[i]]);
-                ITEvents.EventsInstantion[chklstbxInschrijven.CheckedIndices[i]].AantalInschrijvingen++;
+                Databank.DatabankInstantie.AddUserAndEvent(Users.UsersInstantion[lidnummer - 1], ITEvents.EventsInstantion[index]);
+                ITEvents.EventsInstantion[index].AantalInschrijvingen++;
             }
-            MessageBox.Show("Inschrijven voltooid", "Inschrijven");
+            MessageBox.Show("Inschrijven gelukt!", "Inschrijven");
             Close();
         }
 

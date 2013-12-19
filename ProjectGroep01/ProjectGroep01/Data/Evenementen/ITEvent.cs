@@ -43,8 +43,6 @@ namespace ProjectGroep01.Data.Evenementen
             get { return aantalInschrijvingen; }
             set 
             {
-                if (value < 0)
-                    throw new Exception("AantalInschrijvingen moet minstens 1 zijn");
                 aantalInschrijvingen = value; 
             }
         }

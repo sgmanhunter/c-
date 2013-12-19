@@ -84,7 +84,7 @@ namespace ProjectGroep01.Data.Databank
             eventsRow.eventdate = ite.Datum;
             eventsRow.location = ite.Plaats.Stad;
             eventsRow.housenumber = ite.Plaats.HuisNummer;
-            //eventsRow.streetname = ite.Plaats.Straatnaam;
+            eventsRow.streetname = ite.Plaats.Straatnaam;
             eventsRow.maxparticipants = ite.AantalPlaatsen;
         }
 

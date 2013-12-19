@@ -43,10 +43,11 @@ namespace ProjectGroep01.View
                 int id = Users.UsersInstantion[1].Events[i].EventNummer;
                 string name = Users.UsersInstantion[1].Events[i].EventNaam;
                 DateTime date = Users.UsersInstantion[1].Events[i].Datum;
+                string streetname = Users.UsersInstantion[1].Events[i].Plaats.Straatnaam;
                 string location = Users.UsersInstantion[1].Events[i].Plaats.Stad;
                 int housenumber = Users.UsersInstantion[1].Events[i].Plaats.HuisNummer;
                 int maxparticipants = Users.UsersInstantion[1].Events[i].AantalPlaatsen;
-                temp.AddeventsRow(id, name, date, location, housenumber, maxparticipants);
+                temp.AddeventsRow(id, name, date, location, housenumber, maxparticipants, streetname);
             }
             this.eventsTableAdapter.Fill(temp);
         }
