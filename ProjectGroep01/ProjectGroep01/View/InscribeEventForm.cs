@@ -21,8 +21,8 @@ namespace ProjectGroep01.View
         public InscribeEventForm(int userid)
         {
             InitializeComponent();
-            ControllerInscribeAndWriteOut.ControllerInstantion.InitCheckListBoxInscribe(chklstbxInscribe, userid);
             this.userid = userid;
+            ControllerInscribeAndWriteOut.ControllerInstantion.InitCheckListBoxInscribe(chklstbxInscribe, this.userid);
         }
 
         

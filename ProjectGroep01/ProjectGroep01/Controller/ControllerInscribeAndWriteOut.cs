@@ -41,8 +41,8 @@ namespace ProjectGroep01.Controller
                 for (int j = 0; j < ITEvents.EventInstantion.Count; j++)
                     if (c.CheckedItems[i].ToString() == ITEvents.EventInstantion[j].EventName)
                         index = j;
-                Users.UserInstantion[userid - 1].Events.Add(ITEvents.EventInstantion[index]);
-                Database.DatabankInstantion.AddUserAndEvent(Users.UserInstantion[userid - 1], ITEvents.EventInstantion[index]);
+                Users.UserInstantion[userid].Events.Add(ITEvents.EventInstantion[index]);
+                Database.DatabankInstantion.AddUserAndEvent(Users.UserInstantion[userid], ITEvents.EventInstantion[index]);
                 ITEvents.EventInstantion[index].NumberOfInscribers++;
             }
             MessageBox.Show("Inschrijven gelukt!", "Inschrijven");
@@ -52,10 +52,10 @@ namespace ProjectGroep01.Controller
         {
             for (int i = 0; i < c.CheckedIndices.Count; i++)
             {
-                int index = ITEvents.EventInstantion.IndexOf(Users.UserInstantion[userid - 1].Events[c.CheckedIndices[i]]);
-                Users.UserInstantion[userid - 1].Events.RemoveAt(c.CheckedIndices[i]);
+                int index = ITEvents.EventInstantion.IndexOf(Users.UserInstantion[userid].Events[c.CheckedIndices[i]]);
+                Users.UserInstantion[userid].Events.RemoveAt(c.CheckedIndices[i]);
                 ITEvents.EventInstantion[c.CheckedIndices[i]].NumberOfInscribers--;
-                Database.DatabankInstantion.DeleteUserAndEvent(Users.UserInstantion[userid - 1], ITEvents.EventInstantion[index]);
+                Database.DatabankInstantion.DeleteUserAndEvent(Users.UserInstantion[userid], ITEvents.EventInstantion[index]);
             }
             MessageBox.Show("Uitschrijven voltooid", "Uitschrijven");
         }
