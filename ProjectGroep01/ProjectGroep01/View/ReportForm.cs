@@ -22,13 +22,12 @@ namespace ProjectGroep01.View
         public ReportForm(ShowReport t, int userid)
         {
             report = t;
-            this.userid = userid
+            this.userid = userid;
             InitializeComponent();
         }
         public ReportForm(ShowReport t)
             : this(t, 0)
         {
-
         }
 
         private void ReportForm_Load(object sender, EventArgs e)
@@ -60,6 +59,5 @@ namespace ProjectGroep01.View
         {
             this.eventsTableAdapter.Fill(this.cSGroep01DataSet.events);
         }
-
     }
 }
