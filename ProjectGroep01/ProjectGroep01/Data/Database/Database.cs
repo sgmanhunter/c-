@@ -49,7 +49,7 @@ namespace ProjectGroep01.Data.Database
             for (int i = 0; i < csGroep01DataSet.events.Rows.Count; i++)
             {
                 ITEvent ite = new ITEvent(csGroep01DataSet.events[i].eventname, csGroep01DataSet.events[i].eventdate,
-                    new Place("", csGroep01DataSet.events[i].housenumber, csGroep01DataSet.events[i].location), 
+                    new Place(csGroep01DataSet.events[i].streetname, csGroep01DataSet.events[i].housenumber, csGroep01DataSet.events[i].location), 
                     csGroep01DataSet.events[i].maxparticipants);
                 ITEvents.EventInstantion.Add(ite);
             }

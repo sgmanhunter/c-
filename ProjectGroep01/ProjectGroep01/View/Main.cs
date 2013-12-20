@@ -46,12 +46,12 @@ namespace ProjectGroep01.View
             }
             else if (rdbtnInscribeEvent.Checked)
             {
-                InscribeEventForm ief = new InscribeEventForm(ControllerMain.ControllerInstantion.Userid);
+                InscribeEventForm ief = new InscribeEventForm(ControllerMain.ControllerInstantion.Userid-1);
                 ief.ShowDialog();
             }
             else
             {
-                WriteOutEventForm uef = new WriteOutEventForm(ControllerMain.ControllerInstantion.Userid);
+                WriteOutEventForm uef = new WriteOutEventForm(ControllerMain.ControllerInstantion.Userid-1);
                 uef.ShowDialog();
             }
         }

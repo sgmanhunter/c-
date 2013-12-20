@@ -360,7 +360,7 @@
             this.Controls.Add(this.grpBoxSummary);
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ITEvents";
+            this.Text = "ITEvenementen";
             this.grpBoxSummary.ResumeLayout(false);
             this.grpBoxSummary.PerformLayout();
             this.grpBoxReport.ResumeLayout(false);

@@ -142,7 +142,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Straatnaam</Value>
+                              <Value>Adres</Value>
                               <Style>
                                 <FontFamily>Tahoma</FontFamily>
                                 <FontSize>11pt</FontSize>
@@ -285,7 +285,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!eventdate.Value</Value>
+                              <Value>=Day(Fields!eventdate.Value)&amp;"-"&amp;Month(Fields!eventdate.Value)&amp;"-"&amp;Year(Fields!eventdate.Value)</Value>
                               <Style>
                                 <FontFamily>Tahoma</FontFamily>
                                 <Color>#4d4d4d</Color>
@@ -439,7 +439,7 @@
     <Height>2in</Height>
     <Style />
   </Body>
-  <Width>6.88976in</Width>
+  <Width>7.87402in</Width>
   <Page>
     <PageHeight>29.7cm</PageHeight>
     <PageWidth>21cm</PageWidth>

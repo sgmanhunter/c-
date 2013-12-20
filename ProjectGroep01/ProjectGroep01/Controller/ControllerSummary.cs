@@ -48,7 +48,7 @@ namespace ProjectGroep01.Controller
                             break;
                         case Data.ShowList.freeEvents:
                             title = "Vrije Evenementen";
-                            if (ITEvents.EventInstantion[i].NumberOfInscribers < ITEvents.EventInstantion[i].NumberOfPlaces)
+                            if (ITEvents.EventInstantion[i].NumberOfInscribers < ITEvents.EventInstantion[i].NumberOfPlaces && ITEvents.EventInstantion[i].Date >= DateTime.Today)
                                 ite.Add(ITEvents.EventInstantion[i]);
                             break;
                         case Data.ShowList.passedEvents:
