@@ -22,7 +22,7 @@ namespace ProjectGroep01.View
         }
         private void btnAanmaken_Click(object sender, EventArgs e)
         {
-                Controller.Controller.ControllerInstantion.ClickMakeEvent(txtBoxEventName, dtpDate, txtBoxStreetname, 
+                Controller.ControllerMakeEventRegister.ControllerInstantion.ClickMakeEvent(txtBoxEventName, dtpDate, txtBoxStreetname, 
                     txtBoxHousenumber, txtBoxCity, txtBoxNumberOfPlaces,errorProvider);
         }
         private void btnAnnuleren_Click(object sender, EventArgs e)

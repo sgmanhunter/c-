@@ -54,7 +54,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controller\Controller.cs" />
+    <Compile Include="Controller\ControllerInscribeAndWriteOut.cs" />
+    <Compile Include="Controller\ControllerMain.cs" />
+    <Compile Include="Controller\ControllerMakeEventRegister.cs" />
+    <Compile Include="Controller\ControllerSummary.cs" />
     <Compile Include="Data\Database\CSGroep01DataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

@@ -10,16 +10,16 @@ using ProjectGroep01.Model.People;
 
 namespace ProjectGroep01.Controller
 {
-    class Controller
+    class ControllerMakeEventRegister
     {
-        private static Controller controllerInstantion = new Controller();
+        private static ControllerMakeEventRegister controllerInstantion = new ControllerMakeEventRegister();
 
-        public static Controller ControllerInstantion
+        public static ControllerMakeEventRegister ControllerInstantion
         {
             get { return controllerInstantion; }
             set { controllerInstantion = value; }
         }
-        private Controller()
+        private ControllerMakeEventRegister()
         {
         }
 

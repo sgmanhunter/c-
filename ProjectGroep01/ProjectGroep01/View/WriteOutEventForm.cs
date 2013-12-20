@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using ProjectGroep01.Model.People;
 using ProjectGroep01.Model.Events;
 using ProjectGroep01.Data.Database;
+using ProjectGroep01.Controller;
 
 namespace ProjectGroep01.View
 {
@@ -20,27 +21,15 @@ namespace ProjectGroep01.View
         public WriteOutEventForm(int nummer)
         {
             InitializeComponent();
-            InitCheckListBoxWriteOut();
             userid = nummer;
+            ControllerInscribeAndWriteOut.ControllerInstantion.InitCheckListBoxWriteOut(chklstbxWriteOut,userid);
         }
 
-        private void InitCheckListBoxWriteOut()
-        {
-            chklstbxWriteOut.Items.Clear();
-            for (int i = 0; i < Users.UserInstantion[userid].Events.Count; i++)
-                chklstbxWriteOut.Items.Add(Users.UserInstantion[userid].Events[i].EventName);
-        }
+        
 
         private void btnWriteOut_Click(object sender, EventArgs e)
         {
-            for (int i = 0; i < chklstbxWriteOut.CheckedIndices.Count; i++)
-            {
-                int index = ITEvents.EventInstantion.IndexOf(Users.UserInstantion[userid - 1].Events[chklstbxWriteOut.CheckedIndices[i]]);
-                Users.UserInstantion[userid - 1].Events.RemoveAt(chklstbxWriteOut.CheckedIndices[i]);
-                ITEvents.EventInstantion[chklstbxWriteOut.CheckedIndices[i]].NumberOfInscribers--;
-                Database.DatabankInstantion.DeleteUserAndEvent(Users.UserInstantion[userid - 1], ITEvents.EventInstantion[index]);
-            }
-            MessageBox.Show("Uitschrijven voltooid", "Uitschrijven");
+            ControllerInscribeAndWriteOut.ControllerInstantion.ClickBtnWriteOut(chklstbxWriteOut, userid);
             Close();
         }
 

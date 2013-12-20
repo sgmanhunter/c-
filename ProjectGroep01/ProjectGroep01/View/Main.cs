@@ -8,32 +8,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ProjectGroep01.Model.People;
+using ProjectGroep01.Controller;
 
 
 namespace ProjectGroep01.View
 {
     public partial class Main : Form
     {
-        private bool isLoggedIn;
-        private int userid;
-
-        public bool IsLoggedIn
-        {
-            get { return isLoggedIn; }
-            set { isLoggedIn = value; }
-        }
-        public int Userid
-        {
-            get { return userid; }
-            set { userid = value; }
-        }
 
         public Main()
         {
             InitializeComponent();
-            IsLoggedIn = false;
-            Userid = 0;
-            GrpBoxPicker();
+            ControllerMain.ControllerInstantion.GrpBoxPicker(grpBoxLoggedIn,grpBoxLogin);
         }
 
         private void btnRegister_Click(object sender, EventArgs e)
@@ -41,58 +27,15 @@ namespace ProjectGroep01.View
             RegisterFrame rf = new RegisterFrame();
             rf.ShowDialog();
         }
-        private void GrpBoxPicker()
-        {
-            if (isLoggedIn)
-            {
-                grpBoxLoggedIn.Visible = true;
-                grpBoxLogin.Visible = false;
-            }
-            else
-            {
-                grpBoxLoggedIn.Visible = false;
-                grpBoxLogin.Visible = true;
-            }
-        }
-        private void Reset()
-        {
-            txtBoxUserName.Text = "";
-            txtBoxPassword.Text = "";
-        }
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            string username = txtBoxUserName.Text.ToLower();
-            string password = txtBoxPassword.Text;
-            bool ok = false;
-            int index=1;
-            for (int i = 0; i < Users.UserInstantion.Count; i++)
-            {
-                if (Users.UserInstantion[i].Username == username)
-                {
-                    ok = true;
-                    index = i;
-                    errorProvider.SetError(txtBoxUserName, "");
-                    break;
-                }
-                else
-                    errorProvider.SetError(txtBoxUserName, "Gebruikersnaam bestaat niet");
-            }
-            if (ok && Users.UserInstantion[index].Password == password)
-            {
-                IsLoggedIn = true;
-                errorProvider.SetError(txtBoxPassword, "");
-                Userid = Users.UserInstantion[index].Userid;
-            }
-            else
-                errorProvider.SetError(txtBoxPassword, "Uw wachtwoord klopt niet");
-            GrpBoxPicker();
-            Reset();
+            ControllerMain.ControllerInstantion.ClickLogin(txtBoxUserName, txtBoxPassword, errorProvider, grpBoxLoggedIn, grpBoxLogin);
         }
         private void btnLogout_Click(object sender, EventArgs e)
         {
-            IsLoggedIn = false;
-            Userid = 0;
-            GrpBoxPicker();
+            ControllerMain.ControllerInstantion.IsLoggedIn = false;
+            ControllerMain.ControllerInstantion.Userid = 0;
+            ControllerMain.ControllerInstantion.GrpBoxPicker(grpBoxLoggedIn, grpBoxLogin);
         }
         private void btnGo_Click(object sender, EventArgs e)
         {
@@ -103,12 +46,12 @@ namespace ProjectGroep01.View
             }
             else if (rdbtnInscribeEvent.Checked)
             {
-                InscribeEventForm ief = new InscribeEventForm(Userid);
+                InscribeEventForm ief = new InscribeEventForm(ControllerMain.ControllerInstantion.Userid);
                 ief.ShowDialog();
             }
             else
             {
-                WriteOutEventForm uef = new WriteOutEventForm(Userid);
+                WriteOutEventForm uef = new WriteOutEventForm(ControllerMain.ControllerInstantion.Userid);
                 uef.ShowDialog();
             }
         }
@@ -136,7 +79,7 @@ namespace ProjectGroep01.View
             SummaryForm of;
             if (rdbtnSummaryOwnEvents.Checked)
             {
-                of = new SummaryForm(Data.ShowList.ownEvents, Userid);
+                of = new SummaryForm(Data.ShowList.ownEvents, ControllerMain.ControllerInstantion.Userid);
                 of.Show();
             }
         }

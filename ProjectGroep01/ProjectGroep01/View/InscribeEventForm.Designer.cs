@@ -49,7 +49,7 @@
             this.btnInscribe.TabIndex = 1;
             this.btnInscribe.Text = "Inschrijven";
             this.btnInscribe.UseVisualStyleBackColor = true;
-            this.btnInscribe.Click += new System.EventHandler(this.btnInschrijven_Click);
+            this.btnInscribe.Click += new System.EventHandler(this.btnInscribe_Click);
             // 
             // btnCancel
             // 
