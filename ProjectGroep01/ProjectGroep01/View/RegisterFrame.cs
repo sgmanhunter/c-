@@ -34,7 +34,7 @@ namespace ProjectGroep01.View
                 User user = new User(firstName, lastname, username, password, dateOfBirth, sex, email);
                 Users.UserInstantion.Add(user);
                 Database.DatabankInstantion.AddUser(user);
-                MessageBox.Show("Uw registratie is gelukt!","Registreren");
+                MessageBox.Show("Uw registratie is gelukt! U kunt zich aanmelden of nog iemand registreren","Registreren");
                 Close();
             }
 
@@ -47,7 +47,7 @@ namespace ProjectGroep01.View
         private bool ControlInput()
         {
             bool ok = ControlString(txtBoxFirstname) & ControlString(txtBoxLastname) & ControlString(txtBoxUsername)
-                & ControlString(txtBoxPassword) & ControlString(txtBoxEmail) & ControlPassword();
+                & ControlString(txtBoxPassword) & ControlString(txtBoxEmail) & ControlPassword() & ControlUsername();
             return ok;
         }
 
@@ -76,6 +76,20 @@ namespace ProjectGroep01.View
                 errorProvider.SetError(txtBoxConfirmPassword, "");
                 return true;
             }
+        }
+
+        private bool ControlUsername()
+        {
+            bool ok = false;
+            for (int i = 0; i < Users.UserInstantion.Count; i++)
+                if (txtBoxUsername.Text == Users.UserInstantion[i].Username)
+                    errorProvider.SetError(txtBoxUsername, "Gebruikersnaam bestaat al");
+                else
+                {
+                    ok = true;
+                    errorProvider.SetError(txtBoxUsername, "");
+                }
+            return ok;
         }
     }
 }

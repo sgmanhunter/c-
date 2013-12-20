@@ -25,7 +25,6 @@ C:\Users\Kenny Deblaere\Documents\GitHub\c-\ProjectGroep01\ProjectGroep01\obj\De
 C:\Users\Kenny Deblaere\Documents\GitHub\c-\ProjectGroep01\ProjectGroep01\obj\Debug\ProjectGroep01.pdb
 C:\Users\Kenny Deblaere\Documents\GitHub\c-\ProjectGroep01\ProjectGroep01\obj\Debug\RdlCompile.cache
 C:\Users\Kenny Deblaere\Documents\GitHub\c-\ProjectGroep01\ProjectGroep01\obj\Debug\RdlCompile.compiled
-C:\Users\Kenny Deblaere\Documents\GitHub\c-\ProjectGroep01\ProjectGroep01\bin\Debug\EntityFramework.dll
 C:\Users\Kenny Deblaere\Documents\GitHub\c-\ProjectGroep01\ProjectGroep01\obj\Debug\ProjectGroep01.View.ReportForm.resources
 C:\Users\Kenny Deblaere\Documents\GitHub\c-\ProjectGroep01\ProjectGroep01\obj\Debug\ProjectGroep01.View.MakeEventForm.resources
 C:\Users\Kenny Deblaere\Documents\GitHub\c-\ProjectGroep01\ProjectGroep01\obj\Debug\ProjectGroep01.View.InscribeEventForm.resources
