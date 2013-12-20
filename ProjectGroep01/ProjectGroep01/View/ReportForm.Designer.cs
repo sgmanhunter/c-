@@ -31,21 +31,30 @@
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.eventsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.rpvFreeEvents = new Microsoft.Reporting.WinForms.ReportViewer();
             this.cSGroep01DataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cSGroep01DataSet = new ProjectGroep01.Data.Database.CSGroep01DataSet();
             this.eventsTableAdapter = new ProjectGroep01.Data.Database.CSGroep01DataSetTableAdapters.eventsTableAdapter();
-            this.rpvFreeEvents = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.eventsBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.eventsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cSGroep01DataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cSGroep01DataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.eventsBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // eventsBindingSource
             // 
             this.eventsBindingSource.DataMember = "events";
             this.eventsBindingSource.DataSource = this.cSGroep01DataSetBindingSource;
+            // 
+            // rpvFreeEvents
+            // 
+            reportDataSource1.Name = "cSGroep01DataSet";
+            reportDataSource1.Value = this.eventsBindingSource;
+            this.rpvFreeEvents.LocalReport.DataSources.Add(reportDataSource1);
+            this.rpvFreeEvents.LocalReport.ReportEmbeddedResource = "ProjectGroep01.Reports.ReportFreeEvents.rdlc";
+            this.rpvFreeEvents.Location = new System.Drawing.Point(1, 0);
+            this.rpvFreeEvents.Name = "rpvFreeEvents";
+            this.rpvFreeEvents.Size = new System.Drawing.Size(814, 454);
+            this.rpvFreeEvents.TabIndex = 0;
             // 
             // cSGroep01DataSetBindingSource
             // 
@@ -61,22 +70,6 @@
             // 
             this.eventsTableAdapter.ClearBeforeFill = true;
             // 
-            // rpvFreeEvents
-            // 
-            reportDataSource1.Name = "cSGroep01DataSet";
-            reportDataSource1.Value = this.eventsBindingSource;
-            this.rpvFreeEvents.LocalReport.DataSources.Add(reportDataSource1);
-            this.rpvFreeEvents.LocalReport.ReportEmbeddedResource = "ProjectGroep01.Reports.ReportFreeEvents.rdlc";
-            this.rpvFreeEvents.Location = new System.Drawing.Point(1, 0);
-            this.rpvFreeEvents.Name = "rpvFreeEvents";
-            this.rpvFreeEvents.Size = new System.Drawing.Size(814, 454);
-            this.rpvFreeEvents.TabIndex = 0;
-            // 
-            // eventsBindingSource1
-            // 
-            this.eventsBindingSource1.DataMember = "events";
-            this.eventsBindingSource1.DataSource = this.cSGroep01DataSetBindingSource;
-            // 
             // ReportForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -89,7 +82,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.eventsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cSGroep01DataSetBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cSGroep01DataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.eventsBindingSource1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -101,7 +93,6 @@
         private System.Windows.Forms.BindingSource eventsBindingSource;
         private Data.Database.CSGroep01DataSetTableAdapters.eventsTableAdapter eventsTableAdapter;
         private Microsoft.Reporting.WinForms.ReportViewer rpvFreeEvents;
-        private System.Windows.Forms.BindingSource eventsBindingSource1;
 
     }
 }

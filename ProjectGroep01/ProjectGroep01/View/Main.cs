@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using ProjectGroep01.Model.People;
 using ProjectGroep01.Controller;
+using ProjectGroep01.Data;
 
 
 namespace ProjectGroep01.View
@@ -82,14 +83,19 @@ namespace ProjectGroep01.View
                 of = new SummaryForm(Data.ShowList.ownEvents, ControllerMain.ControllerInstantion.Userid);
                 of.Show();
             }
+            else
+            {
+                ReportForm rf = new ReportForm(ShowReport.ownEvents, ControllerMain.ControllerInstantion.Userid);
+            }
         }
         private void btnReport_Click(object sender, EventArgs e)
         {
+            ReportForm rf;
             if (rdbtnReportEventFree.Checked)
-            {
-                ReportForm rf = new ReportForm();
-                rf.Show();
-            }
+                rf = new ReportForm(ShowReport.freeEvents);
+            else
+                rf = new ReportForm(ShowReport.statistics);
+            rf.Show();
         }
     }
 }

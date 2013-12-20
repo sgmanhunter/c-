@@ -13,4 +13,11 @@ namespace ProjectGroep01.Data
         passedEvents,
         ownEvents
     }
+
+    public enum ShowReport
+    {
+        freeEvents,
+        statistics,
+        ownEvents
+    }
 }

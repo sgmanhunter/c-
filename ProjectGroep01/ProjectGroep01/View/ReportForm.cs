@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ProjectGroep01.Data;
 using ProjectGroep01.Data.Database;
 using ProjectGroep01.Data.Database.CSGroep01DataSetTableAdapters;
 using ProjectGroep01.Model.Events;
@@ -16,57 +17,49 @@ namespace ProjectGroep01.View
 {
     public partial class ReportForm : Form
     {
-        public ReportForm()
+        private ShowReport report;
+        private int userid;
+        public ReportForm(ShowReport t, int userid)
         {
+            report = t;
+            this.userid = userid
             InitializeComponent();
+        }
+        public ReportForm(ShowReport t)
+            : this(t, 0)
+        {
+
         }
 
         private void ReportForm_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'cSGroep01DataSet.events' table. You can move, or remove it, as needed.
-            this.eventsTableAdapter.Fill(this.cSGroep01DataSet.events);
-
+            ShowRightReport();
             this.rpvFreeEvents.RefreshReport();
         }
 
-        //private void ReportForm_Load(object sender, EventArgs e)
-        //{
-        //   this.reportViewer1.RefreshReport();
-        //}
+        private void FillFreeEvents()
+        {
+            this.eventsTableAdapter.FillByDate(this.cSGroep01DataSet.events, DateTime.Today);
+        }
 
-        //private void FillReport()
-        //{
-        //    // TODO: This line of code loads data into the 'cSGroep01DataSet.events' table. You can move, or remove it, as needed.
-        //    this.eventsTableAdapter.Fill(this.cSGroep01DataSet.events);
-        //}
+        private void ShowRightReport() 
+        { 
+            switch(report)
+            {
+                case ShowReport.freeEvents:
+                    FillFreeEvents();
+                    break;
+                case ShowReport.statistics:
+                    FillStatisticsEvents();
+                    break;
+            }
+        }
 
-        //private void FillOwnEventsReport()
-        //{
-        //    // TODO: This line of code loads data into the 'cSGroep01DataSet.events' table. You can move, or remove it, as needed.
-        //    CSGroep01DataSet.eventsDataTable temp;
-        //    temp = this.cSGroep01DataSet.events;
-        //    temp.Rows[1].Delete();
+        private void FillStatisticsEvents()
+        {
+            this.eventsTableAdapter.Fill(this.cSGroep01DataSet.events);
+        }
 
-        //    for (int i = 0; i < Users.UsersInstantion[1].Events.Count; i++)
-        //    {
-        //        CSGroep01DataSet.eventsRow eventsrow = temp.NeweventsRow();
-        //        Databank.DatabankInstantie.FillEventRow(eventsrow, Users.UsersInstantion[0].Events[i]);
-        //        int id = Users.UsersInstantion[0].Events[i].EventNummer;
-        //        string name = Users.UsersInstantion[0].Events[i].EventNaam;
-        //        DateTime date = Users.UsersInstantion[0].Events[i].Datum;
-        //        string streetname = Users.UsersInstantion[0].Events[i].Plaats.Straatnaam;
-        //        string location = Users.UsersInstantion[0].Events[i].Plaats.Stad;
-        //        int housenumber = Users.UsersInstantion[0].Events[i].Plaats.HuisNummer;
-        //        int maxparticipants = Users.UsersInstantion[0].Events[i].AantalPlaatsen;
-        //        temp.Rows.Add(eventsrow);
-        //    }
-        //    //this.eventsTableAdapter.Update(temp);
-        //    this.eventsTableAdapter.Fill(temp);
-        //}
-
-        //public void Updating()
-        //{
-        //    FillReport();
-        //}
     }
 }
